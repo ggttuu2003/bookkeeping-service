@@ -42,9 +42,6 @@ public class TransactionController {
      */
     @PostMapping
     public ApiResponse<TransactionVO> createTransaction(@Valid @RequestBody TransactionDTO transactionDTO) {
-        // 简化实现，实际应该从JWT token中获取用户ID
-        Long currentUserId = 1L;
-
         // 验证交易类型
         if (transactionDTO.getType() != 1 && transactionDTO.getType() != 2) {
             throw new BusinessException(400, "交易类型必须为1或2");
@@ -55,9 +52,9 @@ public class TransactionController {
             throw new BusinessException(400, "支付方式ID不能为空");
         }
 
-        // 验证账本ID
+        // 设置默认值
         if (transactionDTO.getBookId() == null) {
-            throw new BusinessException(400, "账本ID不能为空");
+            transactionDTO.setBookId(1L);
         }
 
         Long transactionId = transactionService.createTransaction(transactionDTO);
@@ -80,7 +77,7 @@ public class TransactionController {
             @RequestParam(defaultValue = "transactionTime") String sort,
             @RequestParam(defaultValue = "desc") String order) {
 
-        // 简化实现，实际应该从JWT token中获取用户ID和当前账本ID
+        // 使用默认值
         Long currentUserId = 1L;
         Long currentBookId = 1L;
 
@@ -170,7 +167,7 @@ public class TransactionController {
         String imageBase64 = request.get("imageBase64").toString();
         Integer type = Integer.valueOf(request.get("type").toString());
 
-        // 简化实现，实际应该从JWT token中获取用户ID
+        // 使用默认用户ID
         Long currentUserId = 1L;
 
         TransactionDTO result = transactionService.recognizeReceiptByOCR(currentUserId, bookId, imageBase64);

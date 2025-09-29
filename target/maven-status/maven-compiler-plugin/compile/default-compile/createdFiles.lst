@@ -25,10 +25,13 @@ com/smartbookkeeping/security/CustomUserDetailsService.class
 com/smartbookkeeping/config/MybatisPlusConfig.class
 com/smartbookkeeping/service/impl/StatisticsServiceImpl.class
 com/smartbookkeeping/service/AiService.class
+com/smartbookkeeping/domain/Transaction.class
+com/smartbookkeeping/service/impl/PaymentMethodServiceImpl.class
 com/smartbookkeeping/common/api/ResultCode.class
 com/smartbookkeeping/mapper/UserMapper.class
 com/smartbookkeeping/domain/entity/Transaction.class
 com/smartbookkeeping/controller/PaymentMethodController.class
+com/smartbookkeeping/domain/entity/PaymentMethod.class
 com/smartbookkeeping/exception/BusinessException.class
 com/smartbookkeeping/service/StatisticsService.class
 com/smartbookkeeping/mapper/TransactionMapper.class
@@ -40,6 +43,7 @@ com/smartbookkeeping/domain/vo/UserLoginVO.class
 com/smartbookkeeping/domain/vo/AiPredictionVO.class
 com/smartbookkeeping/domain/entity/Budget.class
 com/smartbookkeeping/domain/entity/Category.class
+com/smartbookkeeping/controller/HomeController.class
 com/smartbookkeeping/config/SecurityConfig.class
 com/smartbookkeeping/controller/CategoryController.class
 com/smartbookkeeping/service/CategoryService.class
@@ -47,10 +51,13 @@ com/smartbookkeeping/controller/AuthController.class
 com/smartbookkeeping/domain/vo/TrendAnalysisVO.class
 com/smartbookkeeping/common/ApiResponse.class
 com/smartbookkeeping/mapper/CategoryMapper.class
+com/smartbookkeeping/domain/vo/PaymentMethodVO.class
 com/smartbookkeeping/controller/TransactionController.class
 com/smartbookkeeping/BookkeepingServiceApplication.class
 com/smartbookkeeping/service/impl/BookServiceImpl.class
 com/smartbookkeeping/domain/vo/UserInfoVO.class
+com/smartbookkeeping/mapper/PaymentMethodMapper.class
 com/smartbookkeeping/controller/BookController.class
+com/smartbookkeeping/service/PaymentMethodService.class
 com/smartbookkeeping/domain/vo/DailyStatVO.class
 com/smartbookkeeping/domain/dto/UserLoginDTO.class

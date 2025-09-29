@@ -20,6 +20,9 @@ public class TransactionVO implements Serializable {
     private Long userId;
     private Long categoryId;
     private String categoryName;
+    private String categoryIcon;
+    private String categoryColor;
+    private Long paymentMethodId;
     private BigDecimal amount;
     private Integer type;
     private LocalDateTime transactionTime;

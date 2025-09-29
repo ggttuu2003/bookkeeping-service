@@ -16,4 +16,6 @@ public interface CategoryService {
     void deleteById(Long id);
 
     String getCategoryNameById(Long categoryId);
+
+    List<Category> getCategoriesByType(Integer type);
 }

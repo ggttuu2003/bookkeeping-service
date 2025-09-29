@@ -49,4 +49,15 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = findById(categoryId);
         return category != null ? category.getName() : null;
     }
+
+    @Override
+    public List<Category> getCategoriesByType(Integer type) {
+        QueryWrapper<Category> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("system_flag", 1); // 只返回系统预设分类
+        if (type != null) {
+            queryWrapper.eq("type", type);
+        }
+        queryWrapper.orderByAsc("sort");
+        return categoryMapper.selectList(queryWrapper);
+    }
 }

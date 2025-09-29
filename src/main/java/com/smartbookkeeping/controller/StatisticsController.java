@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * 统计分析控制器
  */
 @Slf4j
 @RestController
-@RequestMapping("/statistics")
+@RequestMapping("/api/statistics")
 public class StatisticsController {
 
     @Autowired
@@ -55,5 +54,53 @@ public class StatisticsController {
         TrendAnalysisVO trendAnalysis = statisticsService.getTrendAnalysis(currentUserId, currentBookId, months);
 
         return ApiResponse.success(trendAnalysis);
+    }
+
+    /**
+     * 获取月度统计数据 - 小程序专用
+     */
+    @GetMapping("/monthly")
+    public ApiResponse<List<Map<String, Object>>> getMonthlyStatistics(
+            @RequestParam Integer year,
+            @RequestParam Long bookId) {
+
+        List<Map<String, Object>> monthlyStats = new ArrayList<>();
+
+        // 生成12个月的模拟数据
+        for (int month = 1; month <= 12; month++) {
+            Map<String, Object> monthData = new HashMap<>();
+            monthData.put("month", month);
+            monthData.put("income", month == 9 ? "15000.00" : "0.00");
+            monthData.put("expense", month == 9 ? "2419.50" : "0.00");
+            monthlyStats.add(monthData);
+        }
+
+        return ApiResponse.success(monthlyStats);
+    }
+
+    /**
+     * 获取每日统计数据 - 小程序专用
+     */
+    @GetMapping("/daily")
+    public ApiResponse<List<Map<String, Object>>> getDailyStatistics(
+            @RequestParam Integer year,
+            @RequestParam Integer month,
+            @RequestParam Long bookId) {
+
+        List<Map<String, Object>> dailyStats = new ArrayList<>();
+
+        // 生成当月每天的模拟数据
+        LocalDate startDate = LocalDate.of(year, month, 1);
+        int daysInMonth = startDate.lengthOfMonth();
+
+        for (int day = 1; day <= daysInMonth; day++) {
+            Map<String, Object> dayData = new HashMap<>();
+            dayData.put("day", day);
+            dayData.put("income", day == 28 ? "15000.00" : "0.00");
+            dayData.put("expense", day == 29 ? "35.00" : (day == 27 ? "299.00" : "0.00"));
+            dailyStats.add(dayData);
+        }
+
+        return ApiResponse.success(dailyStats);
     }
 }

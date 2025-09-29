@@ -27,7 +27,11 @@ public class Category implements Serializable {
 
     private Long userId;
 
-    private Integer sortOrder;
+    private Long parentId;
+
+    private Integer sort;
+
+    private Integer systemFlag;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createdTime;

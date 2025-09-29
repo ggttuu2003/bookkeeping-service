@@ -215,6 +215,34 @@ public class TransactionServiceImpl extends ServiceImpl<TransactionMapper, Trans
         return dto;
     }
 
+    @Override
+    public List<TransactionVO> getRecentTransactions(Long userId, Long bookId, Integer limit) {
+        LambdaQueryWrapper<Transaction> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Transaction::getUserId, userId);
+        if (bookId != null) {
+            wrapper.eq(Transaction::getBookId, bookId);
+        }
+        wrapper.orderByDesc(Transaction::getTransactionTime);
+        wrapper.last("LIMIT " + (limit != null ? limit : 10));
+
+        List<Transaction> transactions = list(wrapper);
+        return transactions.stream()
+                .map(this::convertToVO)
+                .collect(Collectors.toList());
+    }
+
+    private TransactionVO convertToVO(Transaction transaction) {
+        TransactionVO vo = new TransactionVO();
+        BeanUtils.copyProperties(transaction, vo);
+
+        if (transaction.getCategoryId() != null) {
+            String categoryName = categoryService.getCategoryNameById(transaction.getCategoryId());
+            vo.setCategoryName(categoryName);
+        }
+
+        return vo;
+    }
+
     private BigDecimal calculateTotalAmount(Long userId, Long bookId, Integer type, LocalDateTime startTime, LocalDateTime endTime) {
         LambdaQueryWrapper<Transaction> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Transaction::getUserId, userId);

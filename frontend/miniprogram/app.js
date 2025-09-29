@@ -5,6 +5,6 @@ App({
     console.log('智能记账小程序启动');
   },
   globalData: {
-    baseUrl: 'http://localhost:8080/api'
+    baseUrl: 'http://localhost:8081/api'
   }
 })
