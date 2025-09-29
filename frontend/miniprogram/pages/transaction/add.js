@@ -181,11 +181,12 @@ Page({
     // 构建交易数据
     const transaction = {
       type: transactionType,
-      amount: parseFloat(amount),
+      amount: amount, // 直接传字符串，后端会转换为BigDecimal
       categoryId: categories[categoryIndex].id,
       paymentMethodId: paymentMethods[paymentMethodIndex].id,
       transactionTime: date,
-      description: description
+      description: description,
+      bookId: 1 // 添加必需的bookId字段
     };
     
     wx.showLoading({ title: '保存中...' });

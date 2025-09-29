@@ -1631,3 +1631,38 @@ org.springframework.web.bind.MissingServletRequestParameterException: Required r
 2025-09-29T15:45:09.359+08:00  INFO 85479 --- [http-nio-8081-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 2025-09-29T15:45:09.447+08:00  INFO 85479 --- [http-nio-8081-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47f1aa90
 2025-09-29T15:45:09.448+08:00  INFO 85479 --- [http-nio-8081-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-29T17:11:00.711+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] c.s.BookkeepingServiceApplication        : Starting BookkeepingServiceApplication using Java 21.0.7 with PID 97483 (/Users/yizhoucp/self-project/bookkeeping-service/target/classes started by yizhoucp in /Users/yizhoucp/self-project/bookkeeping-service)
+2025-09-29T17:11:00.712+08:00 DEBUG 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] c.s.BookkeepingServiceApplication        : Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-29T17:11:00.713+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] c.s.BookkeepingServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-09-29T17:11:01.114+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-29T17:11:01.116+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-09-29T17:11:01.133+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-09-29T17:11:01.450+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-09-29T17:11:01.455+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-29T17:11:01.456+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-29T17:11:01.482+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-29T17:11:01.482+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 748 ms
+2025-09-29T17:11:01.562+08:00 DEBUG 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@25658d39'
+2025-09-29T17:11:01.644+08:00 DEBUG 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [/Users/yizhoucp/self-project/bookkeeping-service/target/classes/mapper/TransactionMapper.xml]'
+2025-09-29T17:11:06.730+08:00 DEBUG 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] c.s.security.JwtAuthenticationFilter     : Filter 'jwtAuthenticationFilter' configured for use
+2025-09-29T17:11:07.005+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@20e7d6a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d343ddb, org.springframework.security.web.context.SecurityContextHolderFilter@6e39472e, org.springframework.security.web.header.HeaderWriterFilter@2aecab98, org.springframework.web.filter.CorsFilter@3897c6d7, org.springframework.security.web.authentication.logout.LogoutFilter@68320bc3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ec0ea88, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3915d483, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e33dcc2, org.springframework.security.web.session.SessionManagementFilter@33feae84, org.springframework.security.web.access.ExceptionTranslationFilter@7a19e16b, org.springframework.security.web.access.intercept.AuthorizationFilter@179b1dc5]
+2025-09-29T17:11:07.144+08:00 ERROR 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-09-29T17:11:07.301+08:00  WARN 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-09-29T17:11:07.310+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-09-29T17:11:07.317+08:00  INFO 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-09-29T17:11:07.325+08:00 ERROR 97483 --- [com.smartbookkeeping.BookkeepingServiceApplication.main()] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+

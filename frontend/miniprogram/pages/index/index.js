@@ -37,7 +37,7 @@ Page({
         // 处理最近交易记录数据格式
         const recentTransactions = (data.recentTransactions || []).map(transaction => ({
           id: transaction.id,
-          type: transaction.type === 1 ? 'expense' : 'income',
+          type: transaction.type === 1 ? 'income':'expense',
           amount: parseFloat(transaction.amount),
           categoryName: transaction.categoryName,
           categoryIcon: transaction.categoryIcon || (transaction.type === 1 ? '📝' : '💰'),

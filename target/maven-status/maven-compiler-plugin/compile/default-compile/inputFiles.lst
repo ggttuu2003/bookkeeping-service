@@ -1,4 +1,5 @@
 /Users/yizhoucp/self-project/bookkeeping-service/src/main/java/com/smartbookkeeping/service/TransactionService.java
+/Users/yizhoucp/self-project/bookkeeping-service/src/main/java/com/smartbookkeeping/config/MyMetaObjectHandler.java
 /Users/yizhoucp/self-project/bookkeeping-service/src/main/java/com/smartbookkeeping/domain/vo/UserInfoVO.java
 /Users/yizhoucp/self-project/bookkeeping-service/src/main/java/com/smartbookkeeping/domain/dto/UserRegisterDTO.java
 /Users/yizhoucp/self-project/bookkeeping-service/src/main/java/com/smartbookkeeping/service/impl/StatisticsServiceImpl.java

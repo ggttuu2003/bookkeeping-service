@@ -85,9 +85,10 @@ Page({
   // 加载月度统计
   loadMonthlyStats() {
     const { currentYear, currentMonth } = this.data;
-    
+
     request.get('/statistics/monthly', {
-      year: currentYear
+      year: currentYear,
+      bookId: 1  // 使用默认账本ID
     }).then(res => {
       const monthData = res.data.find(item => item.month === currentMonth);
       
@@ -116,10 +117,15 @@ Page({
   // 加载分类统计
   loadCategoryStats() {
     const { currentYear, currentMonth, categoryType } = this.data;
-    
+
+    // 计算当月的开始和结束日期
+    const startDate = `${currentYear}-${currentMonth.toString().padStart(2, '0')}-01`;
+    const endDate = new Date(currentYear, currentMonth, 0).getDate(); // 获取当月最后一天
+    const endDateStr = `${currentYear}-${currentMonth.toString().padStart(2, '0')}-${endDate.toString().padStart(2, '0')}`;
+
     request.get('/statistics/category', {
-      year: currentYear,
-      month: currentMonth,
+      startDate: startDate,
+      endDate: endDateStr,
       type: categoryType
     }).then(res => {
       // 计算总金额
@@ -152,10 +158,11 @@ Page({
   // 加载趋势数据
   loadTrendData() {
     const { currentYear, currentMonth } = this.data;
-    
+
     request.get('/statistics/daily', {
       year: currentYear,
-      month: currentMonth
+      month: currentMonth,
+      bookId: 1  // 使用默认账本ID
     }).then(res => {
       // 找出最大值，用于计算图表高度
       let maxAmount = 0;
