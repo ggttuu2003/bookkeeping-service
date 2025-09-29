@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="form-group">
+    <view class="type-selector">
+      <view class="type-btn {{transactionType === 2 ? 'active' : ''}}" bindtap="setType" data-type="2">支出</view>
+      <view class="type-btn {{transactionType === 1 ? 'active' : ''}}" bindtap="setType" data-type="1">收入</view>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">金额</text>
+      <input class="input amount-input" type="digit" value="{{amount}}" bindinput="onAmountInput" placeholder="请输入金额" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">分类</text>
+      <picker bindchange="onCategoryChange" value="{{categoryIndex}}" range="{{categories}}" range-key="name">
+        <view class="picker">
+          {{categoryIndex > -1 ? categories[categoryIndex].name : '请选择分类'}}
+        </view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">日期</text>
+      <picker mode="date" value="{{date}}" bindchange="onDateChange">
+        <view class="picker">{{date}}</view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">描述</text>
+      <input class="input" value="{{description}}" bindinput="onDescriptionInput" placeholder="请输入描述(选填)" />
+    </view>
+  </view>
+  
+  <view class="btn-area">
+    <button class="submit-btn" bindtap="submitTransaction">保存</button>
+  </view>
+</view>

@@ -1,0 +1,109 @@
+<view class="container">
+  <view class="header">
+    <picker mode="date" fields="month" value="{{currentDate}}" bindchange="onDateChange">
+      <view class="date-picker">{{currentYear}}年{{currentMonth}}月 <text class="arrow">▼</text></view>
+    </picker>
+  </view>
+  
+  <view class="summary-card">
+    <view class="summary-item">
+      <text class="label">收入</text>
+      <text class="amount income">￥{{totalIncome || '0.00'}}</text>
+    </view>
+    <view class="divider"></view>
+    <view class="summary-item">
+      <text class="label">支出</text>
+      <text class="amount expense">￥{{totalExpense || '0.00'}}</text>
+    </view>
+    <view class="divider"></view>
+    <view class="summary-item">
+      <text class="label">结余</text>
+      <text class="amount">￥{{balance || '0.00'}}</text>
+    </view>
+  </view>
+  
+  <view class="tabs">
+    <view class="tab {{activeTab === 'overview' ? 'active' : ''}}" bindtap="switchTab" data-tab="overview">概览</view>
+    <view class="tab {{activeTab === 'category' ? 'active' : ''}}" bindtap="switchTab" data-tab="category">分类</view>
+    <view class="tab {{activeTab === 'trend' ? 'active' : ''}}" bindtap="switchTab" data-tab="trend">趋势</view>
+  </view>
+  
+  <view class="chart-container">
+    <!-- 概览图表 -->
+    <view class="chart-section" wx:if="{{activeTab === 'overview'}}">
+      <view class="chart-title">收支概览</view>
+      <view class="chart-placeholder">
+        <view class="pie-chart">
+          <view class="pie-segment income" style="transform: rotate(0deg); clip-path: polygon(50% 50%, 50% 0%, {{incomePercentage > 50 ? '100% 0%, 100% 100%, 0% 100%, 0% 0%' : (100 * incomePercentage / 50) + '% 0%'}})"></view>
+          <view class="pie-segment expense" style="transform: rotate({{incomePercentage * 3.6}}deg); clip-path: polygon(50% 50%, 50% 0%, {{expensePercentage > 50 ? '100% 0%, 100% 100%, 0% 100%, 0% 0%' : (100 * expensePercentage / 50) + '% 0%'}})"></view>
+          <view class="pie-center">
+            <text>总计</text>
+            <text>￥{{total || '0.00'}}</text>
+          </view>
+        </view>
+        <view class="chart-legend">
+          <view class="legend-item">
+            <view class="legend-color income"></view>
+            <text class="legend-text">收入 {{incomePercentage}}%</text>
+          </view>
+          <view class="legend-item">
+            <view class="legend-color expense"></view>
+            <text class="legend-text">支出 {{expensePercentage}}%</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 分类图表 -->
+    <view class="chart-section" wx:if="{{activeTab === 'category'}}">
+      <view class="type-selector">
+        <view class="type-btn {{categoryType === 2 ? 'active' : ''}}" bindtap="setCategoryType" data-type="2">支出</view>
+        <view class="type-btn {{categoryType === 1 ? 'active' : ''}}" bindtap="setCategoryType" data-type="1">收入</view>
+      </view>
+      <view class="category-list">
+        <block wx:if="{{categoryStats.length > 0}}">
+          <view class="category-item" wx:for="{{categoryStats}}" wx:key="categoryId">
+            <view class="category-info">
+              <view class="category-name">{{item.categoryName}}</view>
+              <view class="category-percent">{{item.percentage}}%</view>
+            </view>
+            <view class="category-bar">
+              <view class="category-progress" style="width: {{item.percentage}}%;"></view>
+            </view>
+            <view class="category-amount">￥{{item.amount}}</view>
+          </view>
+        </block>
+        <view wx:else class="empty-tip">暂无数据</view>
+      </view>
+    </view>
+    
+    <!-- 趋势图表 -->
+    <view class="chart-section" wx:if="{{activeTab === 'trend'}}">
+      <view class="chart-title">收支趋势</view>
+      <view class="trend-chart">
+        <view class="trend-y-axis">
+          <text wx:for="{{yAxisLabels}}" wx:key="*this">{{item}}</text>
+        </view>
+        <view class="trend-chart-content">
+          <view class="trend-bars">
+            <view class="trend-bar-group" wx:for="{{trendData}}" wx:key="day">
+              <view class="trend-bar expense" style="height: {{item.expenseHeight}}px"></view>
+              <view class="trend-bar income" style="height: {{item.incomeHeight}}px"></view>
+              <text class="trend-x-label">{{item.day}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="chart-legend">
+        <view class="legend-item">
+          <view class="legend-color income"></view>
+          <text class="legend-text">收入</text>
+        </view>
+        <view class="legend-item">
+          <view class="legend-color expense"></view>
+          <text class="legend-text">支出</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

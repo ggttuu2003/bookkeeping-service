@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="header">
+    <view class="filter">
+      <picker mode="date" fields="month" value="{{currentDate}}" bindchange="onDateChange">
+        <view class="date-picker">{{currentYear}}年{{currentMonth}}月 <text class="arrow">▼</text></view>
+      </picker>
+      <view class="tabs">
+        <view class="tab {{activeTab === 'all' ? 'active' : ''}}" bindtap="switchTab" data-tab="all">全部</view>
+        <view class="tab {{activeTab === 'expense' ? 'active' : ''}}" bindtap="switchTab" data-tab="expense">支出</view>
+        <view class="tab {{activeTab === 'income' ? 'active' : ''}}" bindtap="switchTab" data-tab="income">收入</view>
+      </view>
+    </view>
+    <view class="summary">
+      <view class="summary-item">
+        <text class="label">支出</text>
+        <text class="amount">￥{{totalExpense || '0.00'}}</text>
+      </view>
+      <view class="summary-item">
+        <text class="label">收入</text>
+        <text class="amount">￥{{totalIncome || '0.00'}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="transaction-list">
+    <block wx:if="{{transactions.length > 0}}">
+      <view wx:for="{{transactions}}" wx:key="id" class="transaction-item" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="transaction-info">
+          <view class="transaction-category">{{item.categoryName}}</view>
+          <view class="transaction-desc">{{item.description || '无描述'}}</view>
+          <view class="transaction-time">{{item.transactionTime}}</view>
+        </view>
+        <view class="transaction-amount {{item.type === 1 ? 'income' : 'expense'}}">
+          {{item.type === 1 ? '+' : '-'}}￥{{item.amount}}
+        </view>
+      </view>
+    </block>
+    <view wx:else class="empty-tip">暂无交易记录</view>
+  </view>
+  
+  <view class="add-btn" bindtap="goToAdd">
+    <image src="/images/add_circle.png"></image>
+  </view>
+</view>

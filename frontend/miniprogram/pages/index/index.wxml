@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="header">
+    <view class="welcome">您好，{{userInfo.nickname || '用户'}}</view>
+    <view class="summary">
+      <view class="summary-item">
+        <text class="label">本月支出</text>
+        <text class="amount">￥{{monthlyExpense || '0.00'}}</text>
+      </view>
+      <view class="summary-item">
+        <text class="label">本月收入</text>
+        <text class="amount">￥{{monthlyIncome || '0.00'}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="recent-transactions">
+    <view class="section-title">最近交易</view>
+    <view class="transaction-list">
+      <block wx:if="{{transactions.length > 0}}">
+        <view class="transaction-item" wx:for="{{transactions}}" wx:key="id" bindtap="goToTransactionDetail" data-id="{{item.id}}">
+          <view class="transaction-info">
+            <view class="transaction-category">{{item.categoryName}}</view>
+            <view class="transaction-desc">{{item.description || '无描述'}}</view>
+            <view class="transaction-time">{{item.transactionTime}}</view>
+          </view>
+          <view class="transaction-amount {{item.type === 1 ? 'income' : 'expense'}}">
+            {{item.type === 1 ? '+' : '-'}}￥{{item.amount}}
+          </view>
+        </view>
+      </block>
+      <view wx:else class="empty-tip">暂无交易记录</view>
+    </view>
+    <view class="more" bindtap="goToTransactionList">查看更多</view>
+  </view>
+  
+  <view class="quick-actions">
+    <view class="action-btn" bindtap="goToAddTransaction">
+      <image src="/images/add.png"></image>
+      <text>记一笔</text>
+    </view>
+    <view class="action-btn" bindtap="goToStatistics">
+      <image src="/images/chart.png"></image>
+      <text>统计分析</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/register/register",
+    "pages/index/index",
+    "pages/transaction/transaction",
+    "pages/statistics/statistics",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3cc51f",
+    "navigationBarTitleText": "智能记账小程序",
+    "navigationBarTextStyle": "white"
+  },
+
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,77 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: bookkeeping-service
+  
+  # 数据库配置（使用H2内存数据库用于测试）
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ""
+  h2:
+    console:
+      enabled: true
+  
+  # Redis配置
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    timeout: 10s
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-active: 8
+        max-wait: -1ms
+  
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+
+# MyBatis-Plus配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# JWT配置
+jwt:
+  secret: smart-bookkeeping-secret-key-for-jwt-token-generation-and-validation
+  expiration: 86400000  # 24小时
+  header: Authorization
+  token-prefix: Bearer
+
+# 日志配置
+logging:
+  level:
+    root: info
+    com.smartbookkeeping: debug
+  file:
+    name: logs/bookkeeping-service.log
+
+# 自定义配置
+app:
+  # 文件存储路径
+  file-storage-path: ./uploads
+  # AI服务配置
+  ai:
+    enabled: true
+    prediction-days: 30
+    api-key: your-ai-service-api-key
+    api-url: https://api.example.com/ai
