@@ -1603,3 +1603,31 @@ org.springframework.web.bind.MissingServletRequestParameterException: Required r
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.15.jar:10.1.15]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
+2025-09-29T15:44:00.903+08:00  INFO 82599 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-09-29T15:44:00.910+08:00  INFO 82599 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-09-29T15:44:08.136+08:00  INFO 85479 --- [main] c.s.BookkeepingServiceApplication        : Starting BookkeepingServiceApplication using Java 21.0.7 with PID 85479 (/Users/yizhoucp/self-project/bookkeeping-service/target/classes started by yizhoucp in /Users/yizhoucp/self-project/bookkeeping-service)
+2025-09-29T15:44:08.136+08:00 DEBUG 85479 --- [main] c.s.BookkeepingServiceApplication        : Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-29T15:44:08.137+08:00  INFO 85479 --- [main] c.s.BookkeepingServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-09-29T15:44:08.459+08:00  INFO 85479 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-29T15:44:08.460+08:00  INFO 85479 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-09-29T15:44:08.476+08:00  INFO 85479 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-09-29T15:44:08.800+08:00  INFO 85479 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-09-29T15:44:08.804+08:00  INFO 85479 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-29T15:44:08.804+08:00  INFO 85479 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-29T15:44:08.840+08:00  INFO 85479 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-29T15:44:08.841+08:00  INFO 85479 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 684 ms
+2025-09-29T15:44:08.904+08:00 DEBUG 85479 --- [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@1cde374'
+2025-09-29T15:44:08.987+08:00 DEBUG 85479 --- [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [/Users/yizhoucp/self-project/bookkeeping-service/target/classes/mapper/TransactionMapper.xml]'
+2025-09-29T15:44:09.041+08:00 DEBUG 85479 --- [main] c.s.security.JwtAuthenticationFilter     : Filter 'jwtAuthenticationFilter' configured for use
+2025-09-29T15:44:09.292+08:00  INFO 85479 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3bf01a01, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299cab08, org.springframework.security.web.context.SecurityContextHolderFilter@54f373d4, org.springframework.security.web.header.HeaderWriterFilter@24de63b, org.springframework.web.filter.CorsFilter@6c75e3bc, org.springframework.security.web.authentication.logout.LogoutFilter@126254ec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16949dfa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42cfd794, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@186f7434, org.springframework.security.web.session.SessionManagementFilter@26cdd4af, org.springframework.security.web.access.ExceptionTranslationFilter@1b69fc07, org.springframework.security.web.access.intercept.AuthorizationFilter@4f7ba0af]
+2025-09-29T15:44:09.483+08:00 ERROR 85479 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-09-29T15:44:09.671+08:00  INFO 85479 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2025-09-29T15:44:09.677+08:00  INFO 85479 --- [main] c.s.BookkeepingServiceApplication        : Started BookkeepingServiceApplication in 1.715 seconds (process running for 7.306)
+2025-09-29T15:44:09.677+08:00 DEBUG 85479 --- [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
+2025-09-29T15:44:09.678+08:00 DEBUG 85479 --- [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
+2025-09-29T15:45:09.264+08:00  INFO 85479 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-29T15:45:09.265+08:00  INFO 85479 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-29T15:45:09.268+08:00  INFO 85479 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-09-29T15:45:09.359+08:00  INFO 85479 --- [http-nio-8081-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-29T15:45:09.447+08:00  INFO 85479 --- [http-nio-8081-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47f1aa90
+2025-09-29T15:45:09.448+08:00  INFO 85479 --- [http-nio-8081-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

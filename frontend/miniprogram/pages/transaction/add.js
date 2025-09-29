@@ -10,10 +10,12 @@ Page({
     categoryIndex: -1,
     categories: [],
     paymentMethodIndex: 0, // 默认选择第一个支付方式
-    paymentMethods: constants.PAYMENT_METHODS,
+    paymentMethods: [],
     date: '',
     description: '',
-    bookId: 1 // 默认账本ID
+    bookId: 1, // 默认账本ID
+    categoriesLoading: false,
+    hasError: false
   },
 
   onLoad() {
@@ -26,8 +28,9 @@ Page({
       date: `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`
     });
     
-    // 加载分类
+    // 加载分类和支付方式
     this.loadCategories();
+    this.loadPaymentMethods();
   },
 
   // 设置交易类型
@@ -41,11 +44,83 @@ Page({
   },
 
   // 加载分类
-  loadCategories() {
-    const categories = constants.getCategoriesByType(this.data.transactionType);
-    this.setData({
-      categories: categories
-    });
+  async loadCategories() {
+    try {
+      this.setData({ categoriesLoading: true, hasError: false });
+
+      // 先尝试从缓存获取
+      const categories = constants.getCategoriesByType(this.data.transactionType);
+
+      // 如果缓存中没有数据，尝试刷新
+      if (!categories || categories.length === 0) {
+        const storage = require('../../utils/storage');
+        await storage.refreshCategories();
+
+        // 重新获取数据
+        const refreshedCategories = constants.getCategoriesByType(this.data.transactionType);
+        this.setData({
+          categories: refreshedCategories,
+          categoriesLoading: false
+        });
+      } else {
+        this.setData({
+          categories: categories,
+          categoriesLoading: false
+        });
+      }
+    } catch (error) {
+      console.error('加载分类失败:', error);
+
+      // 使用默认数据作为fallback
+      const defaultCategories = constants.getCategoriesByType(this.data.transactionType);
+      this.setData({
+        categories: defaultCategories,
+        categoriesLoading: false,
+        hasError: true
+      });
+
+      wx.showToast({
+        title: '分类加载失败，使用默认分类',
+        icon: 'none'
+      });
+    }
+  },
+
+  // 加载支付方式
+  async loadPaymentMethods() {
+    try {
+      // 先尝试从缓存获取
+      const paymentMethods = constants.getPaymentMethods();
+
+      // 如果缓存中没有数据，尝试刷新
+      if (!paymentMethods || paymentMethods.length === 0) {
+        const storage = require('../../utils/storage');
+        await storage.refreshPaymentMethods();
+
+        // 重新获取数据
+        const refreshedPaymentMethods = constants.getPaymentMethods();
+        this.setData({
+          paymentMethods: refreshedPaymentMethods
+        });
+      } else {
+        this.setData({
+          paymentMethods: paymentMethods
+        });
+      }
+    } catch (error) {
+      console.error('加载支付方式失败:', error);
+
+      // 使用默认数据作为fallback
+      const defaultPaymentMethods = constants.getPaymentMethods();
+      this.setData({
+        paymentMethods: defaultPaymentMethods
+      });
+
+      wx.showToast({
+        title: '支付方式加载失败，使用默认数据',
+        icon: 'none'
+      });
+    }
   },
 
   // 金额输入

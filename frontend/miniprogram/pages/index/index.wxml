@@ -1,22 +1,37 @@
 <!-- 首页 -->
 <view class="container">
-  <!-- 顶部统计卡片 -->
-  <view class="stats-card">
-    <view class="balance-section">
-      <text class="balance-label">当前余额</text>
-      <text class="balance-amount">¥{{balance}}</text>
-    </view>
-    <view class="income-expense">
-      <view class="item">
-        <text class="label">本月收入</text>
-        <text class="amount income">¥{{monthIncome}}</text>
-      </view>
-      <view class="item">
-        <text class="label">本月支出</text>
-        <text class="amount expense">¥{{monthExpense}}</text>
-      </view>
-    </view>
+  <!-- Loading状态 -->
+  <view wx:if="{{loading}}" class="loading-container">
+    <view class="loading-icon">⏳</view>
+    <text class="loading-text">加载中...</text>
   </view>
+
+  <!-- 错误状态 -->
+  <view wx:elif="{{hasError}}" class="error-container">
+    <view class="error-icon">❌</view>
+    <text class="error-text">数据加载失败</text>
+    <button class="retry-btn" bindtap="retryLoad">重试</button>
+  </view>
+
+  <!-- 正常内容 -->
+  <view wx:else>
+    <!-- 顶部统计卡片 -->
+    <view class="stats-card">
+      <view class="balance-section">
+        <text class="balance-label">当前余额</text>
+        <text class="balance-amount">¥{{balance}}</text>
+      </view>
+      <view class="income-expense">
+        <view class="item">
+          <text class="label">本月收入</text>
+          <text class="amount income">¥{{monthIncome}}</text>
+        </view>
+        <view class="item">
+          <text class="label">本月支出</text>
+          <text class="amount expense">¥{{monthExpense}}</text>
+        </view>
+      </view>
+    </view>
 
   <!-- 快速操作 -->
   <view class="quick-actions">
@@ -52,5 +67,6 @@
         </view>
       </block>
     </view>
+  </view>
   </view>
 </view>
