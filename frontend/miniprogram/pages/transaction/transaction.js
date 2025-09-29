@@ -63,7 +63,6 @@ Page({
     
     // 构建查询参数
     const params = {
-      bookId: 1, // 默认账本
       page: page,
       size: size,
       year: currentYear,

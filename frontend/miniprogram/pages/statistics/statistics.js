@@ -17,7 +17,7 @@ Page({
     expensePercentage: 0,
     categoryStats: [],
     trendData: [],
-    yAxisLabels: ['0', '500', '1000', '1500', '2000']
+    yAxisLabels: []
   },
 
   onLoad() {
@@ -87,8 +87,7 @@ Page({
     const { currentYear, currentMonth } = this.data;
     
     request.get('/statistics/monthly', {
-      year: currentYear,
-      bookId: 1 // 默认账本
+      year: currentYear
     }).then(res => {
       const monthData = res.data.find(item => item.month === currentMonth);
       
@@ -121,8 +120,7 @@ Page({
     request.get('/statistics/category', {
       year: currentYear,
       month: currentMonth,
-      type: categoryType,
-      bookId: 1 // 默认账本
+      type: categoryType
     }).then(res => {
       // 计算总金额
       let total = 0;
@@ -157,8 +155,7 @@ Page({
     
     request.get('/statistics/daily', {
       year: currentYear,
-      month: currentMonth,
-      bookId: 1 // 默认账本
+      month: currentMonth
     }).then(res => {
       // 找出最大值，用于计算图表高度
       let maxAmount = 0;

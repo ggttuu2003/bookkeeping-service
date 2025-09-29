@@ -13,7 +13,6 @@ Page({
     paymentMethods: [],
     date: '',
     description: '',
-    bookId: 1, // 默认账本ID
     categoriesLoading: false,
     hasError: false
   },
@@ -160,7 +159,7 @@ Page({
 
   // 提交交易
   submitTransaction() {
-    const { transactionType, amount, categoryIndex, categories, paymentMethodIndex, paymentMethods, date, description, bookId } = this.data;
+    const { transactionType, amount, categoryIndex, categories, paymentMethodIndex, paymentMethods, date, description } = this.data;
     
     // 表单验证
     if (!amount || amount <= 0) {
@@ -186,8 +185,7 @@ Page({
       categoryId: categories[categoryIndex].id,
       paymentMethodId: paymentMethods[paymentMethodIndex].id,
       transactionTime: date,
-      description: description,
-      bookId: bookId
+      description: description
     };
     
     wx.showLoading({ title: '保存中...' });
