@@ -282,7 +282,7 @@ public class AiServiceImpl implements AiService {
         dto.setAmount(new BigDecimal(ThreadLocalRandom.current().nextDouble(10, 200)).setScale(2, RoundingMode.HALF_UP));
         dto.setType(2); // 支出
         dto.setDescription("超市购物");
-        dto.setTransactionTime(LocalDateTime.now());
+        dto.setTransactionTime(LocalDate.now().toString());
         
         // 模拟识别的分类ID (假设超市购物对应的分类ID为8)
         dto.setCategoryId(8L);

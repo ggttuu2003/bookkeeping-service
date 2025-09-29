@@ -1,36 +1,23 @@
 package com.smartbookkeeping.domain.vo;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * 分类统计VO
  */
 @Data
-public class CategoryStatVO {
-    /**
-     * 分类ID
-     */
+@Accessors(chain = true)
+public class CategoryStatVO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private Long categoryId;
-    
-    /**
-     * 分类名称
-     */
     private String categoryName;
-    
-    /**
-     * 金额
-     */
     private BigDecimal amount;
-    
-    /**
-     * 百分比
-     */
     private BigDecimal percentage;
-    
-    /**
-     * 交易次数
-     */
     private Integer count;
 }

@@ -1,5 +1,6 @@
 // pages/transaction/add.js
 const request = require('../../utils/request');
+const constants = require('../../utils/constants');
 const app = getApp();
 
 Page({
@@ -8,6 +9,8 @@ Page({
     amount: '',
     categoryIndex: -1,
     categories: [],
+    paymentMethodIndex: 0, // 默认选择第一个支付方式
+    paymentMethods: constants.PAYMENT_METHODS,
     date: '',
     description: '',
     bookId: 1 // 默认账本ID
@@ -39,12 +42,9 @@ Page({
 
   // 加载分类
   loadCategories() {
-    request.get('/categories', {
-      type: this.data.transactionType
-    }).then(res => {
-      this.setData({
-        categories: res.data || []
-      });
+    const categories = constants.getCategoriesByType(this.data.transactionType);
+    this.setData({
+      categories: categories
     });
   },
 
@@ -69,6 +69,13 @@ Page({
     });
   },
 
+  // 支付方式选择
+  onPaymentMethodChange(e) {
+    this.setData({
+      paymentMethodIndex: parseInt(e.detail.value)
+    });
+  },
+
   // 描述输入
   onDescriptionInput(e) {
     this.setData({
@@ -78,7 +85,7 @@ Page({
 
   // 提交交易
   submitTransaction() {
-    const { transactionType, amount, categoryIndex, categories, date, description, bookId } = this.data;
+    const { transactionType, amount, categoryIndex, categories, paymentMethodIndex, paymentMethods, date, description, bookId } = this.data;
     
     // 表单验证
     if (!amount || amount <= 0) {
@@ -102,6 +109,7 @@ Page({
       type: transactionType,
       amount: parseFloat(amount),
       categoryId: categories[categoryIndex].id,
+      paymentMethodId: paymentMethods[paymentMethodIndex].id,
       transactionTime: date,
       description: description,
       bookId: bookId

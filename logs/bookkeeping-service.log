@@ -809,3 +809,125 @@ For each MvcRequestMatcher, call MvcRequestMatcher#setServletPath to indicate th
 2025-09-29T11:02:06.416+08:00 ERROR 33612 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
 2025-09-29T11:02:06.633+08:00  INFO 33612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
 2025-09-29T11:02:06.639+08:00  INFO 33612 --- [main] c.s.BookkeepingServiceApplication        : Started BookkeepingServiceApplication in 2.72 seconds (process running for 9.099)
+2025-09-29T12:28:49.029+08:00  INFO 48609 --- [main] c.s.BookkeepingServiceApplication        : Starting BookkeepingServiceApplication using Java 21.0.7 with PID 48609 (/Users/yizhoucp/self-project/bookkeeping-service/target/classes started by yizhoucp in /Users/yizhoucp/self-project/bookkeeping-service)
+2025-09-29T12:28:49.029+08:00 DEBUG 48609 --- [main] c.s.BookkeepingServiceApplication        : Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-29T12:28:49.030+08:00  INFO 48609 --- [main] c.s.BookkeepingServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-09-29T12:28:49.336+08:00  INFO 48609 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-29T12:28:49.337+08:00  INFO 48609 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-09-29T12:28:49.352+08:00  INFO 48609 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2025-09-29T12:28:49.654+08:00  INFO 48609 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-09-29T12:28:49.659+08:00  INFO 48609 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-29T12:28:49.659+08:00  INFO 48609 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-29T12:28:49.705+08:00  INFO 48609 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-09-29T12:28:49.705+08:00  INFO 48609 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 655 ms
+2025-09-29T12:28:49.720+08:00  INFO 48609 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-29T12:28:49.803+08:00  INFO 48609 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-09-29T12:28:49.804+08:00  INFO 48609 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-29T12:28:49.809+08:00  INFO 48609 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-09-29T12:28:54.978+08:00 DEBUG 48609 --- [main] c.s.security.JwtAuthenticationFilter     : Filter 'jwtAuthenticationFilter' configured for use
+2025-09-29T12:28:55.215+08:00  INFO 48609 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7d7d8911, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@460eb276, org.springframework.security.web.context.SecurityContextHolderFilter@4ec427, org.springframework.security.web.header.HeaderWriterFilter@732d078d, org.springframework.security.web.authentication.logout.LogoutFilter@6be50b35, com.smartbookkeeping.security.JwtAuthenticationFilter@afee63, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@fde487b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3add5e17, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ffe3d42, org.springframework.security.web.session.SessionManagementFilter@f3876ef, org.springframework.security.web.access.ExceptionTranslationFilter@495da9a7, org.springframework.security.web.access.intercept.AuthorizationFilter@75a9cc24]
+2025-09-29T12:28:55.393+08:00 ERROR 48609 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-09-29T12:28:55.585+08:00  WARN 48609 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-09-29T12:28:55.595+08:00  INFO 48609 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-09-29T12:28:55.596+08:00  INFO 48609 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-09-29T12:28:55.598+08:00  INFO 48609 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-09-29T12:28:55.606+08:00  INFO 48609 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-09-29T12:28:55.614+08:00 ERROR 48609 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-09-29T12:49:01.205+08:00  WARN 33612 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m54s639ms).
+2025-09-29T13:13:40.707+08:00  INFO 49176 --- [main] c.s.BookkeepingServiceApplication        : Starting BookkeepingServiceApplication using Java 21.0.7 with PID 49176 (/Users/yizhoucp/self-project/bookkeeping-service/target/classes started by yizhoucp in /Users/yizhoucp/self-project/bookkeeping-service)
+2025-09-29T13:13:40.708+08:00 DEBUG 49176 --- [main] c.s.BookkeepingServiceApplication        : Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-29T13:13:40.708+08:00  INFO 49176 --- [main] c.s.BookkeepingServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-09-29T13:13:41.059+08:00  INFO 49176 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-29T13:13:41.060+08:00  INFO 49176 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-09-29T13:13:41.082+08:00  INFO 49176 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2025-09-29T13:13:41.429+08:00  INFO 49176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-09-29T13:13:41.434+08:00  INFO 49176 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-29T13:13:41.434+08:00  INFO 49176 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-29T13:13:41.496+08:00  INFO 49176 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-09-29T13:13:41.496+08:00  INFO 49176 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 767 ms
+2025-09-29T13:13:41.512+08:00  INFO 49176 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-29T13:13:41.600+08:00  INFO 49176 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-09-29T13:13:41.601+08:00  INFO 49176 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-29T13:13:41.606+08:00  INFO 49176 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-09-29T13:13:46.779+08:00 DEBUG 49176 --- [main] c.s.security.JwtAuthenticationFilter     : Filter 'jwtAuthenticationFilter' configured for use
+2025-09-29T13:13:47.007+08:00  INFO 49176 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2f6f4ac4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@727dcc64, org.springframework.security.web.context.SecurityContextHolderFilter@26270b77, org.springframework.security.web.header.HeaderWriterFilter@6f112f70, org.springframework.security.web.authentication.logout.LogoutFilter@7d7d8911, com.smartbookkeeping.security.JwtAuthenticationFilter@35e2b89f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18b04526, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@31b6fb14, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49e62b17, org.springframework.security.web.session.SessionManagementFilter@b34c7c9, org.springframework.security.web.access.ExceptionTranslationFilter@73d91faf, org.springframework.security.web.access.intercept.AuthorizationFilter@236fd411]
+2025-09-29T13:13:47.186+08:00 ERROR 49176 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-09-29T13:13:47.363+08:00  INFO 49176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-09-29T13:13:47.369+08:00  INFO 49176 --- [main] c.s.BookkeepingServiceApplication        : Started BookkeepingServiceApplication in 6.833 seconds (process running for 6.975)
+2025-09-29T13:14:06.890+08:00  INFO 49176 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-29T13:14:06.890+08:00  INFO 49176 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-29T13:14:06.892+08:00  INFO 49176 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-09-29T13:15:40.578+08:00  INFO 49617 --- [main] c.s.BookkeepingServiceApplication        : Starting BookkeepingServiceApplication using Java 21.0.7 with PID 49617 (/Users/yizhoucp/self-project/bookkeeping-service/target/classes started by yizhoucp in /Users/yizhoucp/self-project/bookkeeping-service)
+2025-09-29T13:15:40.578+08:00 DEBUG 49617 --- [main] c.s.BookkeepingServiceApplication        : Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-29T13:15:40.579+08:00  INFO 49617 --- [main] c.s.BookkeepingServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-09-29T13:15:40.862+08:00  INFO 49617 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-29T13:15:40.863+08:00  INFO 49617 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-09-29T13:15:40.879+08:00  INFO 49617 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2025-09-29T13:15:41.256+08:00  INFO 49617 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-09-29T13:15:41.261+08:00  INFO 49617 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-29T13:15:41.261+08:00  INFO 49617 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-29T13:15:41.301+08:00  INFO 49617 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-09-29T13:15:41.301+08:00  INFO 49617 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 703 ms
+2025-09-29T13:15:41.316+08:00  INFO 49617 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-29T13:15:41.398+08:00  INFO 49617 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-09-29T13:15:41.399+08:00  INFO 49617 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-29T13:15:41.404+08:00  INFO 49617 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-09-29T13:15:46.567+08:00 DEBUG 49617 --- [main] c.s.security.JwtAuthenticationFilter     : Filter 'jwtAuthenticationFilter' configured for use
+2025-09-29T13:15:46.820+08:00  INFO 49617 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@236fd411, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@402f61f5, org.springframework.security.web.context.SecurityContextHolderFilter@b34c7c9, org.springframework.security.web.header.HeaderWriterFilter@3cb04dd, org.springframework.security.web.authentication.logout.LogoutFilter@75a9cc24, com.smartbookkeeping.security.JwtAuthenticationFilter@5b322873, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f6c4ae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b808af5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6480a063, org.springframework.security.web.session.SessionManagementFilter@3add5e17, org.springframework.security.web.access.ExceptionTranslationFilter@35becbd4, org.springframework.security.web.access.intercept.AuthorizationFilter@7df3da0b]
+2025-09-29T13:15:47.000+08:00 ERROR 49617 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-09-29T13:15:47.184+08:00  INFO 49617 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-09-29T13:15:47.190+08:00  INFO 49617 --- [main] c.s.BookkeepingServiceApplication        : Started BookkeepingServiceApplication in 6.765 seconds (process running for 6.897)
+2025-09-29T13:23:47.638+08:00  INFO 50807 --- [main] c.s.BookkeepingServiceApplication        : Starting BookkeepingServiceApplication using Java 21.0.7 with PID 50807 (/Users/yizhoucp/self-project/bookkeeping-service/target/classes started by yizhoucp in /Users/yizhoucp/self-project/bookkeeping-service)
+2025-09-29T13:23:47.639+08:00 DEBUG 50807 --- [main] c.s.BookkeepingServiceApplication        : Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-29T13:23:47.640+08:00  INFO 50807 --- [main] c.s.BookkeepingServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-09-29T13:23:48.030+08:00  INFO 50807 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-29T13:23:48.032+08:00  INFO 50807 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-09-29T13:23:48.051+08:00  INFO 50807 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2025-09-29T13:23:48.432+08:00  INFO 50807 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-09-29T13:23:48.437+08:00  INFO 50807 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-29T13:23:48.437+08:00  INFO 50807 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-29T13:23:48.477+08:00  INFO 50807 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-09-29T13:23:48.477+08:00  INFO 50807 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 802 ms
+2025-09-29T13:23:48.493+08:00  INFO 50807 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-29T13:23:48.578+08:00  INFO 50807 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-09-29T13:23:48.579+08:00  INFO 50807 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-29T13:23:48.589+08:00  INFO 50807 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-09-29T13:23:48.745+08:00 DEBUG 50807 --- [main] c.s.security.JwtAuthenticationFilter     : Filter 'jwtAuthenticationFilter' configured for use
+2025-09-29T13:23:49.000+08:00  INFO 50807 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4ebd8d2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@44a44a04, org.springframework.security.web.context.SecurityContextHolderFilter@57a5b03, org.springframework.security.web.header.HeaderWriterFilter@146833a2, org.springframework.security.web.authentication.logout.LogoutFilter@5e360c3b, com.smartbookkeeping.security.JwtAuthenticationFilter@26101efc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@558127d2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4552f905, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a63fa71, org.springframework.security.web.session.SessionManagementFilter@5a8b42a3, org.springframework.security.web.access.ExceptionTranslationFilter@2ed7978c, org.springframework.security.web.access.intercept.AuthorizationFilter@6de5ad56]
+2025-09-29T13:23:49.195+08:00 ERROR 50807 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-09-29T13:23:49.394+08:00  WARN 50807 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-09-29T13:23:49.402+08:00  INFO 50807 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-09-29T13:23:49.402+08:00  INFO 50807 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-09-29T13:23:49.403+08:00  INFO 50807 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-09-29T13:23:49.411+08:00  INFO 50807 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-09-29T13:23:49.419+08:00 ERROR 50807 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+

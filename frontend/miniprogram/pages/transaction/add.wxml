@@ -13,22 +13,42 @@
     <view class="form-item">
       <text class="label">分类</text>
       <picker bindchange="onCategoryChange" value="{{categoryIndex}}" range="{{categories}}" range-key="name">
-        <view class="picker">
-          {{categoryIndex > -1 ? categories[categoryIndex].name : '请选择分类'}}
+        <view class="picker category-picker">
+          <view class="category-content">
+            <text class="category-icon">{{categoryIndex > -1 ? categories[categoryIndex].icon : '📝'}}</text>
+            <text class="category-name">{{categoryIndex > -1 ? categories[categoryIndex].name : '请选择分类'}}</text>
+          </view>
+          <text class="arrow">></text>
         </view>
       </picker>
     </view>
     
     <view class="form-item">
-      <text class="label">日期</text>
-      <picker mode="date" value="{{date}}" bindchange="onDateChange">
-        <view class="picker">{{date}}</view>
+      <text class="label">支付方式</text>
+      <picker bindchange="onPaymentMethodChange" value="{{paymentMethodIndex}}" range="{{paymentMethods}}" range-key="name">
+        <view class="picker payment-picker">
+          <view class="payment-content">
+            <text class="payment-icon">{{paymentMethods[paymentMethodIndex].icon}}</text>
+            <text class="payment-name">{{paymentMethods[paymentMethodIndex].name}}</text>
+          </view>
+          <text class="arrow">></text>
+        </view>
       </picker>
     </view>
-    
+
     <view class="form-item">
-      <text class="label">描述</text>
-      <input class="input" value="{{description}}" bindinput="onDescriptionInput" placeholder="请输入描述(选填)" />
+      <text class="label">日期</text>
+      <picker mode="date" value="{{date}}" bindchange="onDateChange">
+        <view class="picker date-picker">
+          <text class="date-text">{{date}}</text>
+          <text class="arrow">></text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">备注</text>
+      <input class="input description-input" value="{{description}}" bindinput="onDescriptionInput" placeholder="添加备注(选填)" />
     </view>
   </view>
   

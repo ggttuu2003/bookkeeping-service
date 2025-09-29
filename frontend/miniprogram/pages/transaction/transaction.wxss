@@ -1,0 +1,226 @@
+/* pages/transaction/transaction.wxss */
+
+.container {
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding-bottom: 120rpx;
+}
+
+/* 头部区域 */
+.header {
+  background: #fff;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+/* 筛选器 */
+.filter {
+  margin-bottom: 20rpx;
+}
+
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 24rpx;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.arrow {
+  margin-left: 8rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+/* 标签页 */
+.tabs {
+  display: flex;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 6rpx;
+  margin-top: 16rpx;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 12rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  border-radius: 8rpx;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background: #1890ff;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* 汇总信息 */
+.summary {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+
+.summary-item {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12rpx;
+  color: #fff;
+}
+
+.summary-item .label {
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.summary-item .amount {
+  font-size: 32rpx;
+  font-weight: 600;
+  display: block;
+}
+
+/* 交易列表 */
+.transaction-list {
+  padding: 20rpx 30rpx 0;
+}
+
+.transaction-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.transaction-item:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.transaction-info {
+  flex: 1;
+}
+
+.transaction-category {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.category-icon {
+  font-size: 32rpx;
+}
+
+.transaction-desc {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 6rpx;
+}
+
+.transaction-time {
+  font-size: 22rpx;
+  color: #ccc;
+}
+
+.transaction-amount {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-left: 20rpx;
+}
+
+.transaction-amount.income {
+  color: #52c41a;
+}
+
+.transaction-amount.expense {
+  color: #ff4d4f;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 80rpx 0;
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 20rpx 0;
+}
+
+/* 悬浮添加按钮 */
+.add-btn {
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+  width: 112rpx;
+  height: 112rpx;
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(24, 144, 255, 0.4);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.add-btn:active {
+  transform: scale(0.95);
+}
+
+.add-btn image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+/* 使用emoji替代图片 */
+.add-icon {
+  font-size: 48rpx;
+  color: #fff;
+  font-weight: 300;
+}
+
+/* 响应式调整 */
+@media (max-width: 375px) {
+  .header {
+    padding: 16rpx 20rpx;
+  }
+
+  .transaction-list {
+    padding: 16rpx 20rpx 0;
+  }
+
+  .transaction-item {
+    padding: 20rpx;
+    margin-bottom: 12rpx;
+  }
+
+  .add-btn {
+    bottom: 30rpx;
+    right: 30rpx;
+    width: 96rpx;
+    height: 96rpx;
+  }
+
+  .add-icon {
+    font-size: 40rpx;
+  }
+}

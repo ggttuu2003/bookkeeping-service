@@ -39,6 +39,6 @@
   </view>
   
   <view class="add-btn" bindtap="goToAdd">
-    <image src="/images/add_circle.png"></image>
+    <text class="add-icon">+</text>
   </view>
 </view>

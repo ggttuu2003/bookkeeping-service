@@ -65,6 +65,11 @@ public class Transaction implements Serializable {
     private String location;
 
     /**
+     * 支付方式ID
+     */
+    private Long paymentMethodId;
+
+    /**
      * 图片URL，多个以逗号分隔
      */
     private String imageUrls;

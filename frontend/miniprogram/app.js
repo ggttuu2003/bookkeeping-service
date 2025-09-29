@@ -1,17 +1,10 @@
 // app.js
 App({
   onLaunch: function () {
-    // 检查登录状态
-    const token = wx.getStorageSync('token');
-    if (token) {
-      this.globalData.isLoggedIn = true;
-      this.globalData.token = token;
-    }
+    // 小程序启动初始化
+    console.log('智能记账小程序启动');
   },
   globalData: {
-    userInfo: null,
-    isLoggedIn: false,
-    token: '',
     baseUrl: 'http://localhost:8080/api'
   }
 })

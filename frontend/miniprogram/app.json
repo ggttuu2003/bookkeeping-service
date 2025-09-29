@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/login/login",
-    "pages/register/register",
     "pages/index/index",
+    "pages/transaction/add",
     "pages/transaction/transaction",
     "pages/statistics/statistics",
     "pages/profile/profile"

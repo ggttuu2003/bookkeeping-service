@@ -49,6 +49,9 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(new org.springframework.security.web.util.matcher.AntPathRequestMatcher("/api/auth/**")).permitAll()
                 .requestMatchers(new org.springframework.security.web.util.matcher.AntPathRequestMatcher("/api/public/**")).permitAll()
+                .requestMatchers(new org.springframework.security.web.util.matcher.AntPathRequestMatcher("/api/categories/**")).permitAll()
+                .requestMatchers(new org.springframework.security.web.util.matcher.AntPathRequestMatcher("/api/payment-methods/**")).permitAll()
+                .requestMatchers(new org.springframework.security.web.util.matcher.AntPathRequestMatcher("/api/transactions/**")).permitAll()
                 .requestMatchers(new org.springframework.security.web.util.matcher.AntPathRequestMatcher("/h2-console/**")).permitAll()
                 .requestMatchers(new org.springframework.security.web.util.matcher.AntPathRequestMatcher("/doc.html")).permitAll()
                 .requestMatchers(new org.springframework.security.web.util.matcher.AntPathRequestMatcher("/swagger-resources/**")).permitAll()

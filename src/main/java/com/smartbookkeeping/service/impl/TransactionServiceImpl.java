@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -36,9 +37,21 @@ public class TransactionServiceImpl extends ServiceImpl<TransactionMapper, Trans
         Transaction transaction = new Transaction();
         BeanUtils.copyProperties(transactionDTO, transaction);
 
-        if (transaction.getTransactionTime() == null) {
+        // 处理transactionTime字符串转换
+        if (transactionDTO.getTransactionTime() != null && !transactionDTO.getTransactionTime().isEmpty()) {
+            try {
+                LocalDateTime transactionTime = LocalDate.parse(transactionDTO.getTransactionTime()).atStartOfDay();
+                transaction.setTransactionTime(transactionTime);
+            } catch (Exception e) {
+                log.warn("交易时间格式解析失败，使用当前时间: {}", transactionDTO.getTransactionTime());
+                transaction.setTransactionTime(LocalDateTime.now());
+            }
+        } else {
             transaction.setTransactionTime(LocalDateTime.now());
         }
+
+        // 设置用户ID（简化实现，实际应该从JWT token中获取）
+        transaction.setUserId(1L);
 
         save(transaction);
         return transaction.getId();

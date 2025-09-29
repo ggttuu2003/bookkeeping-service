@@ -7,19 +7,11 @@ const app = getApp();
  */
 const request = (options) => {
   return new Promise((resolve, reject) => {
-    // 获取token
-    const token = wx.getStorageSync('token');
-    
     // 构建请求头
     const header = {
       'Content-Type': 'application/json'
     };
-    
-    // 如果有token，添加到请求头
-    if (token) {
-      header['Authorization'] = `Bearer ${token}`;
-    }
-    
+
     wx.request({
       url: `${app.globalData.baseUrl}${options.url}`,
       method: options.method || 'GET',
@@ -29,20 +21,8 @@ const request = (options) => {
         // 请求成功，判断业务状态码
         if (res.data.code === 200) {
           resolve(res.data);
-        } else if (res.data.code === 401) {
-          // token失效，跳转到登录页
-          wx.removeStorageSync('token');
-          app.globalData.isLoggedIn = false;
-          wx.showToast({
-            title: '登录已过期，请重新登录',
-            icon: 'none'
-          });
-          wx.navigateTo({
-            url: '/pages/login/login'
-          });
-          reject(res.data);
         } else {
-          // 其他业务错误
+          // 业务错误
           wx.showToast({
             title: res.data.message || '请求失败',
             icon: 'none'
