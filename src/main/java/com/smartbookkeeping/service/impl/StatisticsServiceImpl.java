@@ -65,4 +65,13 @@ public class StatisticsServiceImpl implements StatisticsService {
         result.put("hasBudget", false);
         return result;
     }
+
+    @Override
+    public BigDecimal getMonthlyAmount(Long userId, Long bookId, LocalDate startDate, LocalDate endDate, Integer type) {
+        LocalDateTime startTime = startDate.atStartOfDay();
+        LocalDateTime endTime = endDate.atTime(23, 59, 59);
+
+        BigDecimal amount = transactionMapper.sumAmountByTypeAndDateRange(userId, bookId, type, startTime, endTime);
+        return amount != null ? amount : BigDecimal.ZERO;
+    }
 }

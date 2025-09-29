@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
   servlet:
     context-path: /api
 
@@ -7,20 +7,28 @@ spring:
   application:
     name: bookkeeping-service
   
-  # 数据库配置（使用H2内存数据库用于测试）
+  # 数据库配置（连接到本地Docker MySQL）
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/smart_bookkeeping?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: root123456
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
   h2:
     console:
-      enabled: true
-  
+      enabled: false  # 改为false，因为我们使用MySQL
+
   # Redis配置
   redis:
     host: localhost
     port: 6379
+    password: redis123456  # 添加Redis密码
     database: 0
     timeout: 10s
     lettuce:
@@ -29,7 +37,17 @@ spring:
         max-idle: 8
         max-active: 8
         max-wait: -1ms
-  
+
+  # JPA配置（如果使用JPA）
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+
   # 文件上传配置
   servlet:
     multipart:
@@ -39,6 +57,7 @@ spring:
 # MyBatis-Plus配置
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.smartbookkeeping.entity
   global-config:
     db-config:
       id-type: auto
@@ -62,8 +81,11 @@ logging:
   level:
     root: info
     com.smartbookkeeping: debug
+    com.baomidou.mybatisplus: debug
   file:
     name: logs/bookkeeping-service.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 
 # 自定义配置
 app:
@@ -71,7 +93,7 @@ app:
   file-storage-path: ./uploads
   # AI服务配置
   ai:
-    enabled: true
+    enabled: false  # 暂时关闭，后续再集成
     prediction-days: 30
     api-key: your-ai-service-api-key
     api-url: https://api.example.com/ai

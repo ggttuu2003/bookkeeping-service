@@ -89,4 +89,14 @@ public interface TransactionService {
      * @return 识别结果
      */
     TransactionDTO recognizeReceiptByOCR(Long userId, Long bookId, String imageBase64);
+
+    /**
+     * 获取最近的交易记录
+     *
+     * @param userId 用户ID
+     * @param bookId 账本ID
+     * @param limit  限制数量
+     * @return 最近交易记录列表
+     */
+    List<TransactionVO> getRecentTransactions(Long userId, Long bookId, Integer limit);
 }

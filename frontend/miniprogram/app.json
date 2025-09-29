@@ -4,7 +4,9 @@
     "pages/transaction/add",
     "pages/transaction/transaction",
     "pages/statistics/statistics",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/record/record.wxml",
+    "pages/record"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,7 +14,6 @@
     "navigationBarTitleText": "智能记账小程序",
     "navigationBarTextStyle": "white"
   },
-
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

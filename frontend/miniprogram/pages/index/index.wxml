@@ -1,46 +1,60 @@
+<!-- 首页 -->
 <view class="container">
-  <view class="header">
-    <view class="welcome">您好，{{userInfo.nickname || '用户'}}</view>
-    <view class="summary">
-      <view class="summary-item">
-        <text class="label">本月支出</text>
-        <text class="amount">￥{{monthlyExpense || '0.00'}}</text>
-      </view>
-      <view class="summary-item">
+  <!-- 顶部统计卡片 -->
+  <view class="stats-card">
+    <view class="balance-section">
+      <text class="balance-label">当前余额</text>
+      <text class="balance-amount">¥{{balance}}</text>
+    </view>
+    <view class="income-expense">
+      <view class="item">
         <text class="label">本月收入</text>
-        <text class="amount">￥{{monthlyIncome || '0.00'}}</text>
+        <text class="amount income">¥{{monthIncome}}</text>
+      </view>
+      <view class="item">
+        <text class="label">本月支出</text>
+        <text class="amount expense">¥{{monthExpense}}</text>
       </view>
     </view>
   </view>
-  
-  <view class="recent-transactions">
-    <view class="section-title">最近交易</view>
+
+  <!-- 快速操作 -->
+  <view class="quick-actions">
+    <view class="action-item" bindtap="goToRecord">
+      <view class="icon">➕</view>
+      <text>记一笔</text>
+    </view>
+    <view class="action-item" bindtap="goToStatistics">
+      <view class="icon">📊</view>
+      <text>看统计</text>
+    </view>
+    <view class="action-item" bindtap="goToBudget">
+      <view class="icon">🎯</view>
+      <text>预算</text>
+    </view>
+  </view>
+
+  <!-- 最近交易 -->
+  <view class="recent-section">
+    <view class="section-header">
+      <text class="title">最近交易</text>
+      <text class="more" bindtap="viewAllRecords">查看全部</text>
+    </view>
     <view class="transaction-list">
-      <block wx:if="{{transactions.length > 0}}">
-        <view class="transaction-item" wx:for="{{transactions}}" wx:key="id" bindtap="goToTransactionDetail" data-id="{{item.id}}">
-          <view class="transaction-info">
-            <view class="transaction-category">{{item.categoryName}}</view>
-            <view class="transaction-desc">{{item.description || '无描述'}}</view>
-            <view class="transaction-time">{{item.transactionTime}}</view>
+      <block wx:for="{{recentTransactions}}" wx:key="id">
+        <view class="transaction-item">
+          <view class="left">
+            <view class="category-icon">{{item.categoryIcon}}</view>
+            <view class="info">
+              <text class="description">{{item.description || item.categoryName}}</text>
+              <text class="date">{{item.date}}</text>
+            </view>
           </view>
-          <view class="transaction-amount {{item.type === 1 ? 'income' : 'expense'}}">
-            {{item.type === 1 ? '+' : '-'}}￥{{item.amount}}
+          <view class="amount {{item.type}}">
+            {{item.type === 'income' ? '+' : '-'}}¥{{item.amount}}
           </view>
         </view>
       </block>
-      <view wx:else class="empty-tip">暂无交易记录</view>
-    </view>
-    <view class="more" bindtap="goToTransactionList">查看更多</view>
-  </view>
-  
-  <view class="quick-actions">
-    <view class="action-btn" bindtap="goToAddTransaction">
-      <text class="action-icon">✏️</text>
-      <text>记一笔</text>
-    </view>
-    <view class="action-btn" bindtap="goToStatistics">
-      <text class="action-icon">📊</text>
-      <text>统计分析</text>
     </view>
   </view>
 </view>

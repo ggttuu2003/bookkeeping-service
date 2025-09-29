@@ -5,6 +5,7 @@ import com.smartbookkeeping.domain.vo.DailyStatVO;
 import com.smartbookkeeping.domain.vo.MonthlyStatVO;
 import com.smartbookkeeping.domain.vo.TrendAnalysisVO;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -70,4 +71,15 @@ public interface StatisticsService {
      * @return 预算执行情况
      */
     Map<String, Object> getBudgetExecution(Long userId, Long bookId, Integer year, Integer month);
+
+    /**
+     * 获取指定时间段内的收入或支出总额
+     * @param userId 用户ID
+     * @param bookId 账本ID
+     * @param startDate 开始日期
+     * @param endDate 结束日期
+     * @param type 交易类型：1-收入，2-支出
+     * @return 金额总计
+     */
+    BigDecimal getMonthlyAmount(Long userId, Long bookId, LocalDate startDate, LocalDate endDate, Integer type);
 }
