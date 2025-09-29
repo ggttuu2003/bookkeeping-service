@@ -1,5 +1,5 @@
 {
-  "libVersion": "2.31.0",
+  "libVersion": "3.10.2",
   "projectname": "miniprogram",
   "setting": {
     "urlCheck": true,
@@ -17,6 +17,7 @@
     "showES6CompileOption": false,
     "checkInvalidKey": true,
     "ignoreDevUnusedFiles": true,
-    "bigPackageSizeSupport": false
+    "bigPackageSizeSupport": false,
+    "useIsolateContext": true
   }
 }
