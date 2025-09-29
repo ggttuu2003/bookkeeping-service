@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/api/categories")
 public class CategoryController {
 
     @Autowired
@@ -23,6 +23,7 @@ public class CategoryController {
 
     /**
      * 获取分类列表
+     * V1版本不支持自定义类目
      */
     @GetMapping
     public ApiResponse<List<Category>> getCategories(@RequestParam(required = false) Integer type) {

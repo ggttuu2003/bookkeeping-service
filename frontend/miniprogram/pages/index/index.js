@@ -57,19 +57,13 @@ Page({
 
   goToRecord() {
     wx.navigateTo({
-      url: '/pages/record/record'
+      url: '/pages/transaction/add'
     });
   },
 
   goToStatistics() {
     wx.navigateTo({
       url: '/pages/statistics/statistics'
-    });
-  },
-
-  goToBudget() {
-    wx.navigateTo({
-      url: '/pages/budget/budget'
     });
   },
 

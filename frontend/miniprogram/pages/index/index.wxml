@@ -28,10 +28,6 @@
       <view class="icon">📊</view>
       <text>看统计</text>
     </view>
-    <view class="action-item" bindtap="goToBudget">
-      <view class="icon">🎯</view>
-      <text>预算</text>
-    </view>
   </view>
 
   <!-- 最近交易 -->
