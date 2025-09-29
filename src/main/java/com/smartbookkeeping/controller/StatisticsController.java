@@ -2,6 +2,8 @@ package com.smartbookkeeping.controller;
 
 import com.smartbookkeeping.common.ApiResponse;
 import com.smartbookkeeping.domain.vo.CategoryStatVO;
+import com.smartbookkeeping.domain.vo.MonthlyStatVO;
+import com.smartbookkeeping.domain.vo.DailyStatVO;
 import com.smartbookkeeping.domain.vo.TrendAnalysisVO;
 import com.smartbookkeeping.service.StatisticsService;
 import lombok.extern.slf4j.Slf4j;
@@ -64,15 +66,33 @@ public class StatisticsController {
             @RequestParam Integer year,
             @RequestParam Long bookId) {
 
+        // 简化实现，实际应该从JWT token中获取用户ID
+        Long currentUserId = 1L;
+
         List<Map<String, Object>> monthlyStats = new ArrayList<>();
 
-        // 生成12个月的模拟数据
-        for (int month = 1; month <= 12; month++) {
-            Map<String, Object> monthData = new HashMap<>();
-            monthData.put("month", month);
-            monthData.put("income", month == 9 ? "15000.00" : "0.00");
-            monthData.put("expense", month == 9 ? "2419.50" : "0.00");
-            monthlyStats.add(monthData);
+        try {
+            // 使用真实的统计服务获取数据
+            List<MonthlyStatVO> stats = statisticsService.getMonthlyStats(currentUserId, bookId, year);
+
+            // 转换为前端需要的格式
+            for (MonthlyStatVO stat : stats) {
+                Map<String, Object> monthData = new HashMap<>();
+                monthData.put("month", stat.getMonth());
+                monthData.put("income", stat.getIncome().toString());
+                monthData.put("expense", stat.getExpense().toString());
+                monthlyStats.add(monthData);
+            }
+        } catch (Exception e) {
+            log.error("获取月度统计数据失败", e);
+            // 如果获取真实数据失败，返回空数据
+            for (int month = 1; month <= 12; month++) {
+                Map<String, Object> monthData = new HashMap<>();
+                monthData.put("month", month);
+                monthData.put("income", "0.00");
+                monthData.put("expense", "0.00");
+                monthlyStats.add(monthData);
+            }
         }
 
         return ApiResponse.success(monthlyStats);
@@ -87,18 +107,40 @@ public class StatisticsController {
             @RequestParam Integer month,
             @RequestParam Long bookId) {
 
+        // 简化实现，实际应该从JWT token中获取用户ID
+        Long currentUserId = 1L;
+
         List<Map<String, Object>> dailyStats = new ArrayList<>();
 
-        // 生成当月每天的模拟数据
-        LocalDate startDate = LocalDate.of(year, month, 1);
-        int daysInMonth = startDate.lengthOfMonth();
+        try {
+            // 计算当月的开始日期和结束日期
+            LocalDate startDate = LocalDate.of(year, month, 1);
+            LocalDate endDate = startDate.withDayOfMonth(startDate.lengthOfMonth());
 
-        for (int day = 1; day <= daysInMonth; day++) {
-            Map<String, Object> dayData = new HashMap<>();
-            dayData.put("day", day);
-            dayData.put("income", day == 28 ? "15000.00" : "0.00");
-            dayData.put("expense", day == 29 ? "35.00" : (day == 27 ? "299.00" : "0.00"));
-            dailyStats.add(dayData);
+            // 使用真实的统计服务获取数据
+            List<DailyStatVO> stats = statisticsService.getDailyStats(currentUserId, bookId, startDate, endDate);
+
+            // 转换为前端需要的格式
+            for (DailyStatVO stat : stats) {
+                Map<String, Object> dayData = new HashMap<>();
+                dayData.put("day", stat.getDate().getDayOfMonth());
+                dayData.put("income", stat.getIncome().toString());
+                dayData.put("expense", stat.getExpense().toString());
+                dailyStats.add(dayData);
+            }
+        } catch (Exception e) {
+            log.error("获取每日统计数据失败", e);
+            // 如果获取真实数据失败，返回空数据
+            LocalDate startDate = LocalDate.of(year, month, 1);
+            int daysInMonth = startDate.lengthOfMonth();
+
+            for (int day = 1; day <= daysInMonth; day++) {
+                Map<String, Object> dayData = new HashMap<>();
+                dayData.put("day", day);
+                dayData.put("income", "0.00");
+                dayData.put("expense", "0.00");
+                dailyStats.add(dayData);
+            }
         }
 
         return ApiResponse.success(dailyStats);

@@ -37,12 +37,85 @@ public class StatisticsServiceImpl implements StatisticsService {
 
     @Override
     public List<DailyStatVO> getDailyStats(Long userId, Long bookId, LocalDate startDate, LocalDate endDate) {
-        return new ArrayList<>();
+        try {
+            int year = startDate.getYear();
+            int month = startDate.getMonthValue();
+
+            // 从数据库获取每日统计数据
+            List<Map<String, Object>> dailyData = transactionMapper.getDailyStats(userId, bookId, year, month);
+
+            // 创建结果列表
+            List<DailyStatVO> result = new ArrayList<>();
+
+            // 生成当月所有日期的数据
+            int daysInMonth = startDate.lengthOfMonth();
+            for (int day = 1; day <= daysInMonth; day++) {
+                DailyStatVO dailyStat = new DailyStatVO();
+                dailyStat.setDate(LocalDate.of(year, month, day));
+                dailyStat.setIncome(BigDecimal.ZERO);
+                dailyStat.setExpense(BigDecimal.ZERO);
+
+                // 查找是否有该日的数据
+                for (Map<String, Object> data : dailyData) {
+                    Integer dataDay = (Integer) data.get("day");
+                    if (dataDay != null && dataDay == day) {
+                        BigDecimal income = (BigDecimal) data.get("income");
+                        BigDecimal expense = (BigDecimal) data.get("expense");
+                        dailyStat.setIncome(income != null ? income : BigDecimal.ZERO);
+                        dailyStat.setExpense(expense != null ? expense : BigDecimal.ZERO);
+                        break;
+                    }
+                }
+
+                result.add(dailyStat);
+            }
+
+            return result;
+        } catch (Exception e) {
+            log.error("获取每日统计数据失败", e);
+            return new ArrayList<>();
+        }
     }
 
     @Override
     public List<MonthlyStatVO> getMonthlyStats(Long userId, Long bookId, Integer year) {
-        return new ArrayList<>();
+        try {
+            // 从数据库获取月度统计数据
+            List<Map<String, Object>> monthlyData = transactionMapper.getMonthlyStats(userId, bookId, year);
+
+            // 创建结果列表
+            List<MonthlyStatVO> result = new ArrayList<>();
+
+            // 生成12个月的数据
+            for (int month = 1; month <= 12; month++) {
+                MonthlyStatVO monthlyStat = new MonthlyStatVO();
+                monthlyStat.setYear(year);
+                monthlyStat.setMonth(month);
+                monthlyStat.setIncome(BigDecimal.ZERO);
+                monthlyStat.setExpense(BigDecimal.ZERO);
+
+                // 查找是否有该月的数据
+                for (Map<String, Object> data : monthlyData) {
+                    Integer dataMonth = (Integer) data.get("month");
+                    if (dataMonth != null && dataMonth == month) {
+                        BigDecimal income = (BigDecimal) data.get("income");
+                        BigDecimal expense = (BigDecimal) data.get("expense");
+                        monthlyStat.setIncome(income != null ? income : BigDecimal.ZERO);
+                        monthlyStat.setExpense(expense != null ? expense : BigDecimal.ZERO);
+                        break;
+                    }
+                }
+
+                // 计算净额
+                monthlyStat.setNet(monthlyStat.getIncome().subtract(monthlyStat.getExpense()));
+                result.add(monthlyStat);
+            }
+
+            return result;
+        } catch (Exception e) {
+            log.error("获取月度统计数据失败", e);
+            return new ArrayList<>();
+        }
     }
 
     @Override
@@ -111,7 +184,13 @@ public class StatisticsServiceImpl implements StatisticsService {
         LocalDateTime startTime = startDate.atStartOfDay();
         LocalDateTime endTime = endDate.atTime(23, 59, 59);
 
+        log.debug("查询参数: userId={}, bookId={}, type={}, startTime={}, endTime={}",
+                 userId, bookId, type, startTime, endTime);
+
         BigDecimal amount = transactionMapper.sumAmountByTypeAndDateRange(userId, bookId, type, startTime, endTime);
+
+        log.debug("查询结果: amount={}", amount);
+
         return amount != null ? amount : BigDecimal.ZERO;
     }
 }

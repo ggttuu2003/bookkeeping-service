@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface TransactionMapper extends BaseMapper<Transaction> {
@@ -28,4 +29,19 @@ public interface TransactionMapper extends BaseMapper<Transaction> {
     List<TransactionVO> selectRecentTransactions(@Param("userId") Long userId,
                                                @Param("bookId") Long bookId,
                                                @Param("limit") Integer limit);
+
+    /**
+     * 获取月度统计数据
+     */
+    List<Map<String, Object>> getMonthlyStats(@Param("userId") Long userId,
+                                             @Param("bookId") Long bookId,
+                                             @Param("year") Integer year);
+
+    /**
+     * 获取每日统计数据
+     */
+    List<Map<String, Object>> getDailyStats(@Param("userId") Long userId,
+                                           @Param("bookId") Long bookId,
+                                           @Param("year") Integer year,
+                                           @Param("month") Integer month);
 }

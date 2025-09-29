@@ -33,9 +33,7 @@
     <view class="chart-section" wx:if="{{activeTab === 'overview'}}">
       <view class="chart-title">收支概览</view>
       <view class="chart-placeholder">
-        <view class="pie-chart">
-          <view class="pie-segment income" style="transform: rotate(0deg); clip-path: polygon(50% 50%, 50% 0%, {{incomePercentage > 50 ? '100% 0%, 100% 100%, 0% 100%, 0% 0%' : (100 * incomePercentage / 50) + '% 0%'}})"></view>
-          <view class="pie-segment expense" style="transform: rotate({{incomePercentage * 3.6}}deg); clip-path: polygon(50% 50%, 50% 0%, {{expensePercentage > 50 ? '100% 0%, 100% 100%, 0% 100%, 0% 0%' : (100 * expensePercentage / 50) + '% 0%'}})"></view>
+        <view class="pie-chart" style="--income-angle: {{incomeAngle}}deg; --expense-angle: {{expenseAngle}}deg;">
           <view class="pie-center">
             <text>总计</text>
             <text>￥{{total || '0.00'}}</text>

@@ -1701,3 +1701,152 @@ Action:
 
 Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
 
+2025-09-29T18:00:37.734+08:00  INFO 4022 --- [main] c.s.BookkeepingServiceApplication        : Starting BookkeepingServiceApplication using Java 21.0.7 with PID 4022 (/Users/yizhoucp/self-project/bookkeeping-service/target/classes started by yizhoucp in /Users/yizhoucp/self-project/bookkeeping-service)
+2025-09-29T18:00:37.734+08:00 DEBUG 4022 --- [main] c.s.BookkeepingServiceApplication        : Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-29T18:00:37.734+08:00  INFO 4022 --- [main] c.s.BookkeepingServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-09-29T18:00:38.052+08:00  INFO 4022 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-29T18:00:38.054+08:00  INFO 4022 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-09-29T18:00:38.069+08:00  INFO 4022 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2025-09-29T18:00:38.383+08:00  INFO 4022 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-09-29T18:00:38.387+08:00  INFO 4022 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-29T18:00:38.387+08:00  INFO 4022 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-29T18:00:38.424+08:00  INFO 4022 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-29T18:00:38.424+08:00  INFO 4022 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 669 ms
+2025-09-29T18:00:38.494+08:00 DEBUG 4022 --- [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@6befbb12'
+2025-09-29T18:00:38.577+08:00 DEBUG 4022 --- [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [/Users/yizhoucp/self-project/bookkeeping-service/target/classes/mapper/TransactionMapper.xml]'
+2025-09-29T18:00:38.627+08:00 DEBUG 4022 --- [main] c.s.security.JwtAuthenticationFilter     : Filter 'jwtAuthenticationFilter' configured for use
+2025-09-29T18:00:38.871+08:00  INFO 4022 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6be8ce1b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e3c36d, org.springframework.security.web.context.SecurityContextHolderFilter@3e2c8ef, org.springframework.security.web.header.HeaderWriterFilter@707f4647, org.springframework.web.filter.CorsFilter@397a10df, org.springframework.security.web.authentication.logout.LogoutFilter@4182a651, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@60bc308b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43f99817, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39a865c1, org.springframework.security.web.session.SessionManagementFilter@507f47f9, org.springframework.security.web.access.ExceptionTranslationFilter@422ba9b7, org.springframework.security.web.access.intercept.AuthorizationFilter@5627b8eb]
+2025-09-29T18:00:39.064+08:00 ERROR 4022 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-09-29T18:00:39.251+08:00  INFO 4022 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2025-09-29T18:00:39.257+08:00  INFO 4022 --- [main] c.s.BookkeepingServiceApplication        : Started BookkeepingServiceApplication in 1.7 seconds (process running for 7.381)
+2025-09-29T18:00:39.258+08:00 DEBUG 4022 --- [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
+2025-09-29T18:00:39.258+08:00 DEBUG 4022 --- [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
+2025-09-29T18:00:50.135+08:00  INFO 4022 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-29T18:00:50.135+08:00  INFO 4022 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-29T18:00:50.137+08:00  INFO 4022 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-09-29T18:00:50.194+08:00  INFO 4022 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-29T18:00:50.307+08:00  INFO 4022 --- [http-nio-8081-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3458cca1
+2025-09-29T18:00:50.308+08:00  INFO 4022 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-29T18:00:52.963+08:00 DEBUG 4022 --- [http-nio-8081-exec-1] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:00:53.182+08:00 DEBUG 4022 --- [http-nio-8081-exec-1] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:00:59.534+08:00 DEBUG 4022 --- [http-nio-8081-exec-1] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:00:59.559+08:00 DEBUG 4022 --- [http-nio-8081-exec-1] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:01:02.872+08:00 DEBUG 4022 --- [http-nio-8081-exec-2] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:01:02.878+08:00 DEBUG 4022 --- [http-nio-8081-exec-2] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:01:02.878+08:00 DEBUG 4022 --- [http-nio-8081-exec-2] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:01:02.881+08:00 DEBUG 4022 --- [http-nio-8081-exec-2] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:01:34.133+08:00 DEBUG 4022 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:01:34.136+08:00 DEBUG 4022 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:01:34.136+08:00 DEBUG 4022 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:01:34.138+08:00 DEBUG 4022 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:01:39.863+08:00 DEBUG 4022 --- [http-nio-8081-exec-5] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:01:39.864+08:00 DEBUG 4022 --- [http-nio-8081-exec-5] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:01:39.864+08:00 DEBUG 4022 --- [http-nio-8081-exec-5] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:01:39.865+08:00 DEBUG 4022 --- [http-nio-8081-exec-5] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:05:14.525+08:00 DEBUG 4022 --- [http-nio-8081-exec-7] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:05:14.542+08:00 DEBUG 4022 --- [http-nio-8081-exec-7] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:05:14.542+08:00 DEBUG 4022 --- [http-nio-8081-exec-7] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:05:14.544+08:00 DEBUG 4022 --- [http-nio-8081-exec-7] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:05:14.560+08:00 DEBUG 4022 --- [http-nio-8081-exec-9] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:05:14.561+08:00 DEBUG 4022 --- [http-nio-8081-exec-9] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:05:14.561+08:00 DEBUG 4022 --- [http-nio-8081-exec-9] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:05:14.563+08:00 DEBUG 4022 --- [http-nio-8081-exec-9] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:08:56.874+08:00 DEBUG 4022 --- [http-nio-8081-exec-10] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:08:56.877+08:00 DEBUG 4022 --- [http-nio-8081-exec-10] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:08:56.877+08:00 DEBUG 4022 --- [http-nio-8081-exec-10] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:08:56.878+08:00 DEBUG 4022 --- [http-nio-8081-exec-10] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:09:41.838+08:00 DEBUG 4022 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:09:41.841+08:00 DEBUG 4022 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:09:41.842+08:00 DEBUG 4022 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:09:41.844+08:00 DEBUG 4022 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:11:59.609+08:00 DEBUG 4022 --- [http-nio-8081-exec-6] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:11:59.612+08:00 DEBUG 4022 --- [http-nio-8081-exec-6] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:11:59.612+08:00 DEBUG 4022 --- [http-nio-8081-exec-6] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:11:59.613+08:00 DEBUG 4022 --- [http-nio-8081-exec-6] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:11:59.624+08:00 DEBUG 4022 --- [http-nio-8081-exec-8] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:11:59.625+08:00 DEBUG 4022 --- [http-nio-8081-exec-8] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:11:59.626+08:00 DEBUG 4022 --- [http-nio-8081-exec-8] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:11:59.626+08:00 DEBUG 4022 --- [http-nio-8081-exec-8] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:21:11.625+08:00  INFO 4022 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-09-29T18:21:11.628+08:00  INFO 4022 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-09-29T18:21:20.068+08:00  INFO 7509 --- [main] c.s.BookkeepingServiceApplication        : Starting BookkeepingServiceApplication using Java 21.0.7 with PID 7509 (/Users/yizhoucp/self-project/bookkeeping-service/target/classes started by yizhoucp in /Users/yizhoucp/self-project/bookkeeping-service)
+2025-09-29T18:21:20.068+08:00 DEBUG 7509 --- [main] c.s.BookkeepingServiceApplication        : Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-29T18:21:20.069+08:00  INFO 7509 --- [main] c.s.BookkeepingServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-09-29T18:21:20.466+08:00  INFO 7509 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-29T18:21:20.468+08:00  INFO 7509 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-09-29T18:21:20.484+08:00  INFO 7509 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-09-29T18:21:20.808+08:00  INFO 7509 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-09-29T18:21:20.812+08:00  INFO 7509 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-29T18:21:20.812+08:00  INFO 7509 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-29T18:21:20.854+08:00  INFO 7509 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-29T18:21:20.854+08:00  INFO 7509 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 765 ms
+2025-09-29T18:21:20.933+08:00 DEBUG 7509 --- [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@1cde374'
+2025-09-29T18:21:21.023+08:00 DEBUG 7509 --- [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [/Users/yizhoucp/self-project/bookkeeping-service/target/classes/mapper/TransactionMapper.xml]'
+2025-09-29T18:21:21.087+08:00 DEBUG 7509 --- [main] c.s.security.JwtAuthenticationFilter     : Filter 'jwtAuthenticationFilter' configured for use
+2025-09-29T18:21:21.364+08:00  INFO 7509 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@299cab08, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c75e3bc, org.springframework.security.web.context.SecurityContextHolderFilter@1c53bd49, org.springframework.security.web.header.HeaderWriterFilter@42d0e41, org.springframework.web.filter.CorsFilter@186f7434, org.springframework.security.web.authentication.logout.LogoutFilter@275902e1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d6d683e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43778371, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2374452a, org.springframework.security.web.session.SessionManagementFilter@707f4647, org.springframework.security.web.access.ExceptionTranslationFilter@19e801b5, org.springframework.security.web.access.intercept.AuthorizationFilter@5b23c1f6]
+2025-09-29T18:21:21.555+08:00 ERROR 7509 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-09-29T18:21:21.742+08:00  INFO 7509 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2025-09-29T18:21:21.748+08:00  INFO 7509 --- [main] c.s.BookkeepingServiceApplication        : Started BookkeepingServiceApplication in 1.863 seconds (process running for 7.769)
+2025-09-29T18:21:21.749+08:00 DEBUG 7509 --- [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
+2025-09-29T18:21:21.749+08:00 DEBUG 7509 --- [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
+2025-09-29T18:21:28.256+08:00  INFO 7509 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-29T18:21:28.257+08:00  INFO 7509 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-29T18:21:28.258+08:00  INFO 7509 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-09-29T18:21:28.312+08:00  INFO 7509 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-29T18:21:28.415+08:00  INFO 7509 --- [http-nio-8081-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51fc8f69
+2025-09-29T18:21:28.415+08:00  INFO 7509 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-29T18:21:28.468+08:00 DEBUG 7509 --- [http-nio-8081-exec-1] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:21:28.482+08:00 DEBUG 7509 --- [http-nio-8081-exec-1] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:21:28.482+08:00 DEBUG 7509 --- [http-nio-8081-exec-1] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:21:28.485+08:00 DEBUG 7509 --- [http-nio-8081-exec-1] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:21:31.600+08:00 DEBUG 7509 --- [http-nio-8081-exec-2] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:21:31.602+08:00 DEBUG 7509 --- [http-nio-8081-exec-2] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:21:31.602+08:00 DEBUG 7509 --- [http-nio-8081-exec-2] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:21:31.604+08:00 DEBUG 7509 --- [http-nio-8081-exec-2] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:21:31.622+08:00 DEBUG 7509 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:21:31.624+08:00 DEBUG 7509 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:21:31.624+08:00 DEBUG 7509 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:21:31.626+08:00 DEBUG 7509 --- [http-nio-8081-exec-3] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:21:40.649+08:00 DEBUG 7509 --- [http-nio-8081-exec-5] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:21:40.650+08:00 DEBUG 7509 --- [http-nio-8081-exec-5] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:21:40.650+08:00 DEBUG 7509 --- [http-nio-8081-exec-5] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:21:40.651+08:00 DEBUG 7509 --- [http-nio-8081-exec-5] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:22:02.409+08:00 DEBUG 7509 --- [http-nio-8081-exec-9] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=1, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:22:02.411+08:00 DEBUG 7509 --- [http-nio-8081-exec-9] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=15000.00
+2025-09-29T18:22:02.411+08:00 DEBUG 7509 --- [http-nio-8081-exec-9] c.s.service.impl.StatisticsServiceImpl   : 查询参数: userId=1, bookId=1, type=2, startTime=2024-09-01T00:00, endTime=2024-09-30T23:59:59
+2025-09-29T18:22:02.414+08:00 DEBUG 7509 --- [http-nio-8081-exec-9] c.s.service.impl.StatisticsServiceImpl   : 查询结果: amount=626.50
+2025-09-29T18:22:15.706+08:00  INFO 7727 --- [main] c.s.BookkeepingServiceApplication        : Starting BookkeepingServiceApplication using Java 21.0.7 with PID 7727 (/Users/yizhoucp/self-project/bookkeeping-service/target/classes started by yizhoucp in /Users/yizhoucp/self-project/bookkeeping-service)
+2025-09-29T18:22:15.707+08:00 DEBUG 7727 --- [main] c.s.BookkeepingServiceApplication        : Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-29T18:22:15.708+08:00  INFO 7727 --- [main] c.s.BookkeepingServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-09-29T18:22:16.029+08:00  INFO 7727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-29T18:22:16.030+08:00  INFO 7727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-09-29T18:22:16.046+08:00  INFO 7727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-09-29T18:22:16.370+08:00  INFO 7727 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-09-29T18:22:16.379+08:00  INFO 7727 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-29T18:22:16.379+08:00  INFO 7727 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-29T18:22:16.423+08:00  INFO 7727 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-29T18:22:16.423+08:00  INFO 7727 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 694 ms
+2025-09-29T18:22:16.494+08:00 DEBUG 7727 --- [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@678a9516'
+2025-09-29T18:22:16.569+08:00 DEBUG 7727 --- [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [/Users/yizhoucp/self-project/bookkeeping-service/target/classes/mapper/TransactionMapper.xml]'
+2025-09-29T18:22:21.673+08:00 DEBUG 7727 --- [main] c.s.security.JwtAuthenticationFilter     : Filter 'jwtAuthenticationFilter' configured for use
+2025-09-29T18:22:21.940+08:00  INFO 7727 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c9e19de, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12aa381f, org.springframework.security.web.context.SecurityContextHolderFilter@553ce348, org.springframework.security.web.header.HeaderWriterFilter@7ff09659, org.springframework.web.filter.CorsFilter@6115846e, org.springframework.security.web.authentication.logout.LogoutFilter@6068ebb2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c0e2ec, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d3c22a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1bec1589, org.springframework.security.web.session.SessionManagementFilter@5a6f6cac, org.springframework.security.web.access.ExceptionTranslationFilter@dae5e0, org.springframework.security.web.access.intercept.AuthorizationFilter@60f9dc7e]
+2025-09-29T18:22:22.123+08:00 ERROR 7727 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-09-29T18:22:22.309+08:00  WARN 7727 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-09-29T18:22:22.318+08:00  INFO 7727 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-09-29T18:22:22.324+08:00  INFO 7727 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-09-29T18:22:22.331+08:00 ERROR 7727 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+

@@ -23,7 +23,6 @@ com/smartbookkeeping/domain/vo/TransactionVO.class
 com/smartbookkeeping/domain/dto/BookDTO.class
 com/smartbookkeeping/security/CustomUserDetailsService.class
 com/smartbookkeeping/config/MybatisPlusConfig.class
-com/smartbookkeeping/service/impl/StatisticsServiceImpl.class
 com/smartbookkeeping/service/AiService.class
 com/smartbookkeeping/domain/Transaction.class
 com/smartbookkeeping/service/impl/PaymentMethodServiceImpl.class
@@ -34,6 +33,7 @@ com/smartbookkeeping/controller/PaymentMethodController.class
 com/smartbookkeeping/domain/entity/PaymentMethod.class
 com/smartbookkeeping/exception/BusinessException.class
 com/smartbookkeeping/service/StatisticsService.class
+com/smartbookkeeping/config/MyMetaObjectHandler.class
 com/smartbookkeeping/mapper/TransactionMapper.class
 com/smartbookkeeping/domain/dto/TransactionQueryDTO.class
 com/smartbookkeeping/domain/vo/BookVO.class

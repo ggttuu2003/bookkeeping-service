@@ -133,22 +133,12 @@
   height: 300rpx;
   border-radius: 50%;
   margin-bottom: 40rpx;
-  background: #f5f5f5;
-}
-
-.pie-segment {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-.pie-segment.income {
-  background: conic-gradient(#52c41a 0deg, #52c41a var(--income-angle, 180deg), transparent var(--income-angle, 180deg));
-}
-
-.pie-segment.expense {
-  background: conic-gradient(#ff4d4f 0deg, #ff4d4f var(--expense-angle, 180deg), transparent var(--expense-angle, 180deg));
+  background: conic-gradient(
+    #52c41a 0deg,
+    #52c41a var(--income-angle, 0deg),
+    #ff4d4f var(--income-angle, 0deg),
+    #ff4d4f calc(var(--income-angle, 0deg) + var(--expense-angle, 0deg))
+  );
 }
 
 .pie-center {

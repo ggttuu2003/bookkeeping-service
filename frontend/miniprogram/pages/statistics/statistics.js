@@ -98,17 +98,28 @@ Page({
         const balance = income - expense;
         const total = income + expense;
         
-        // 计算百分比
-        const incomePercentage = total > 0 ? Math.round((income / total) * 100) : 0;
-        const expensePercentage = total > 0 ? Math.round((expense / total) * 100) : 0;
-        
+        // 计算百分比，确保精度和总和为100%
+        let incomePercentage = 0;
+        let expensePercentage = 0;
+
+        if (total > 0) {
+          incomePercentage = Math.round((income / total) * 100);
+          expensePercentage = 100 - incomePercentage; // 确保总和为100%
+        }
+
+        // 计算角度值用于饼图渲染
+        const incomeAngle = (incomePercentage / 100) * 360;
+        const expenseAngle = (expensePercentage / 100) * 360;
+
         this.setData({
           totalIncome: income.toFixed(2),
           totalExpense: expense.toFixed(2),
           balance: balance.toFixed(2),
           total: total.toFixed(2),
           incomePercentage: incomePercentage,
-          expensePercentage: expensePercentage
+          expensePercentage: expensePercentage,
+          incomeAngle: incomeAngle,
+          expenseAngle: expenseAngle
         });
       }
     });
