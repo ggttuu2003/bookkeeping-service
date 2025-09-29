@@ -33,7 +33,6 @@ public class TransactionDTO implements Serializable {
 
     private String description;
 
-    @NotNull(message = "账本ID不能为空")
     private Long bookId;
 
     private Long userId;

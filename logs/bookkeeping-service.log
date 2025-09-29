@@ -1666,3 +1666,38 @@ Action:
 
 Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
 
+2025-09-29T17:23:34.311+08:00  INFO 99380 --- [main] c.s.BookkeepingServiceApplication        : Starting BookkeepingServiceApplication using Java 21.0.7 with PID 99380 (/Users/yizhoucp/self-project/bookkeeping-service/target/classes started by yizhoucp in /Users/yizhoucp/self-project/bookkeeping-service)
+2025-09-29T17:23:34.312+08:00 DEBUG 99380 --- [main] c.s.BookkeepingServiceApplication        : Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-29T17:23:34.312+08:00  INFO 99380 --- [main] c.s.BookkeepingServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-09-29T17:23:34.932+08:00  INFO 99380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-29T17:23:34.934+08:00  INFO 99380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-09-29T17:23:34.953+08:00  INFO 99380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2025-09-29T17:23:35.292+08:00  INFO 99380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-09-29T17:23:35.297+08:00  INFO 99380 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-29T17:23:35.297+08:00  INFO 99380 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-29T17:23:35.347+08:00  INFO 99380 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-29T17:23:35.347+08:00  INFO 99380 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 988 ms
+2025-09-29T17:23:35.411+08:00 DEBUG 99380 --- [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@6e243175'
+2025-09-29T17:23:35.500+08:00 DEBUG 99380 --- [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [/Users/yizhoucp/self-project/bookkeeping-service/target/classes/mapper/TransactionMapper.xml]'
+2025-09-29T17:23:40.591+08:00 DEBUG 99380 --- [main] c.s.security.JwtAuthenticationFilter     : Filter 'jwtAuthenticationFilter' configured for use
+2025-09-29T17:23:40.917+08:00  INFO 99380 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@60f9dc7e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15e5246, org.springframework.security.web.context.SecurityContextHolderFilter@5a6f6cac, org.springframework.security.web.header.HeaderWriterFilter@769b0752, org.springframework.web.filter.CorsFilter@503556cb, org.springframework.security.web.authentication.logout.LogoutFilter@1aeff8ca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59127611, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7417ef4f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c9e19de, org.springframework.security.web.session.SessionManagementFilter@2b1a901d, org.springframework.security.web.access.ExceptionTranslationFilter@343db2f6, org.springframework.security.web.access.intercept.AuthorizationFilter@4fa5cc73]
+2025-09-29T17:23:41.264+08:00 ERROR 99380 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-09-29T17:23:41.621+08:00  WARN 99380 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-09-29T17:23:41.637+08:00  INFO 99380 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-09-29T17:23:41.649+08:00  INFO 99380 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-09-29T17:23:41.659+08:00 ERROR 99380 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
