@@ -83,13 +83,15 @@
           <text wx:for="{{yAxisLabels}}" wx:key="*this">{{item}}</text>
         </view>
         <view class="trend-chart-content">
-          <view class="trend-bars">
-            <view class="trend-bar-group" wx:for="{{trendData}}" wx:key="day">
-              <view class="trend-bar expense" style="height: {{item.expenseHeight}}px"></view>
-              <view class="trend-bar income" style="height: {{item.incomeHeight}}px"></view>
-              <text class="trend-x-label">{{item.day}}</text>
+          <scroll-view class="trend-scroll" scroll-x="true" show-scrollbar="false">
+            <view class="trend-bars" style="width: {{trendChartWidth}}rpx;">
+              <view class="trend-bar-group" wx:for="{{trendData}}" wx:key="day">
+                <view class="trend-bar expense" style="height: {{item.expenseHeight}}px"></view>
+                <view class="trend-bar income" style="height: {{item.incomeHeight}}px"></view>
+                <text class="trend-x-label">{{item.day}}</text>
+              </view>
             </view>
-          </view>
+          </scroll-view>
         </view>
       </view>
       <view class="chart-legend">

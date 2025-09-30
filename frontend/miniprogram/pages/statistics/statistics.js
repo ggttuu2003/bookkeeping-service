@@ -175,43 +175,97 @@ Page({
       month: currentMonth,
       bookId: 1  // 使用默认账本ID
     }).then(res => {
-      // 找出最大值，用于计算图表高度
-      let maxAmount = 0;
+      // 获取当月天数
+      const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+
+      // 创建完整月度数据，包含无数据的天数
+      const dailyMap = {};
       res.data.forEach(item => {
-        const income = parseFloat(item.income);
-        const expense = parseFloat(item.expense);
-        maxAmount = Math.max(maxAmount, income, expense);
-      });
-      
-      // 计算图表高度（最大高度为150px）
-      const maxHeight = 150;
-      const trendData = res.data.map(item => {
-        const income = parseFloat(item.income);
-        const expense = parseFloat(item.expense);
-        
-        return {
-          day: item.day,
-          income: income.toFixed(2),
-          expense: expense.toFixed(2),
-          incomeHeight: maxAmount > 0 ? Math.round((income / maxAmount) * maxHeight) : 0,
-          expenseHeight: maxAmount > 0 ? Math.round((expense / maxAmount) * maxHeight) : 0
+        dailyMap[item.day] = {
+          income: parseFloat(item.income),
+          expense: parseFloat(item.expense)
         };
       });
-      
+
+      // 生成完整的天数数据
+      const fullTrendData = [];
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dayData = dailyMap[day] || { income: 0, expense: 0 };
+        fullTrendData.push({
+          day: day,
+          income: dayData.income,
+          expense: dayData.expense
+        });
+      }
+
+      // 找出最大值，用于计算图表坐标
+      let maxAmount = 0;
+      fullTrendData.forEach(item => {
+        maxAmount = Math.max(maxAmount, item.income, item.expense);
+      });
+
+      // 图表尺寸设置
+      const chartWidth = 600; // 图表宽度 (rpx)
+      const chartHeight = 300; // 图表高度 (rpx)
+      const padding = 40; // 内边距
+
+      // 计算坐标
+      const plotWidth = chartWidth - padding * 2;
+      const plotHeight = chartHeight - padding * 2;
+
+      // 生成折线数据和坐标
+      const incomePoints = [];
+      const expensePoints = [];
+
+      fullTrendData.forEach((item, index) => {
+        const x = padding + (index / (daysInMonth - 1)) * plotWidth;
+        const incomeY = maxAmount > 0 ?
+          padding + plotHeight - (item.income / maxAmount) * plotHeight :
+          padding + plotHeight;
+        const expenseY = maxAmount > 0 ?
+          padding + plotHeight - (item.expense / maxAmount) * plotHeight :
+          padding + plotHeight;
+
+        incomePoints.push({ x, y: incomeY, value: item.income });
+        expensePoints.push({ x, y: expenseY, value: item.expense });
+      });
+
+      // 生成SVG路径
+      const incomePath = this.generateSVGPath(incomePoints);
+      const expensePath = this.generateSVGPath(expensePoints);
+
       // 生成Y轴标签
       const step = maxAmount / 4;
       const yAxisLabels = [
-        '0',
-        (step).toFixed(0),
-        (step * 2).toFixed(0),
+        maxAmount.toFixed(0),
         (step * 3).toFixed(0),
-        maxAmount.toFixed(0)
+        (step * 2).toFixed(0),
+        (step).toFixed(0),
+        '0'
       ];
-      
+
       this.setData({
-        trendData: trendData,
-        yAxisLabels: yAxisLabels
+        trendData: fullTrendData,
+        yAxisLabels: yAxisLabels,
+        incomePoints: incomePoints,
+        expensePoints: expensePoints,
+        incomePath: incomePath,
+        expensePath: expensePath,
+        chartWidth: chartWidth,
+        chartHeight: chartHeight,
+        maxAmount: maxAmount
       });
     });
+  },
+
+  // 生成SVG路径
+  generateSVGPath(points) {
+    if (points.length === 0) return '';
+
+    let path = `M ${points[0].x} ${points[0].y}`;
+    for (let i = 1; i < points.length; i++) {
+      path += ` L ${points[i].x} ${points[i].y}`;
+    }
+    return path;
   }
 })

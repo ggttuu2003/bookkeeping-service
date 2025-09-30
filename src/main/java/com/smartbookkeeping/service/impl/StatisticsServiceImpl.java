@@ -41,8 +41,12 @@ public class StatisticsServiceImpl implements StatisticsService {
             int year = startDate.getYear();
             int month = startDate.getMonthValue();
 
+            log.debug("获取每日统计数据: userId={}, bookId={}, year={}, month={}", userId, bookId, year, month);
+
             // 从数据库获取每日统计数据
             List<Map<String, Object>> dailyData = transactionMapper.getDailyStats(userId, bookId, year, month);
+
+            log.debug("数据库返回每日统计记录数: {}", dailyData.size());
 
             // 创建结果列表
             List<DailyStatVO> result = new ArrayList<>();

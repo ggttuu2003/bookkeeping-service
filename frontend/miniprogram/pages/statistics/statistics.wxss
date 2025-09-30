@@ -300,15 +300,22 @@
   position: relative;
 }
 
+.trend-scroll {
+  height: 100%;
+  width: 100%;
+}
+
 .trend-bars {
   display: flex;
   align-items: flex-end;
-  height: 100%;
+  height: 300rpx;
   gap: 12rpx;
+  padding: 0 20rpx;
 }
 
 .trend-bar-group {
-  flex: 1;
+  flex: none;
+  width: 40rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
